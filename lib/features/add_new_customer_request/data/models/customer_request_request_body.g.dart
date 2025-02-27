@@ -11,17 +11,16 @@ CustomerRequestRequestBody _$CustomerRequestRequestBodyFromJson(
 ) => CustomerRequestRequestBody(
   name: json['name'] as String,
   phoneNumber: json['phoneNumber'] as String,
-  taxNumber: json['taxNumber'] as String,
-  creditLimit: (json['creditLimit'] as num).toDouble(),
-  buildingNumber: json['buildingNumber'] as String,
-  streetName: json['streetName'] as String,
-  subNumber: (json['subNumber'] as num).toInt(),
-  zipCode: json['zipCode'] as String,
-  cityEnName: json['cityEnName'] as String,
-  cityArName: json['cityArName'] as String,
-  countryEnName: json['countryEnName'] as String,
-  countryArName: json['countryArName'] as String,
-  files: (json['files'] as List<dynamic>).map((e) => e as String).toList(),
+  taxNumber: json['taxNumber'] as String?,
+  creditLimit: (json['creditLimit'] as num?)?.toDouble(),
+  buildingNumber: json['buildingNumber'] as String?,
+  streetName: json['streetName'] as String?,
+  subNumber: (json['subNumber'] as num?)?.toInt(),
+  zipCode: json['zipCode'] as String?,
+  cityEnName: json['cityEnName'] as String?,
+  cityArName: json['cityArName'] as String?,
+  countryEnName: json['countryEnName'] as String?,
+  countryArName: json['countryArName'] as String?,
 );
 
 Map<String, dynamic> _$CustomerRequestRequestBodyToJson(
@@ -39,5 +38,4 @@ Map<String, dynamic> _$CustomerRequestRequestBodyToJson(
   'cityArName': instance.cityArName,
   'countryEnName': instance.countryEnName,
   'countryArName': instance.countryArName,
-  'files': instance.files,
 };
