@@ -18,9 +18,9 @@ abstract class ApiService {
     @Part(name: 'streetName') String streetName,
     @Part(name: 'subNumber') int subNumber,
     @Part(name: 'zipCode') String zipCode,
-    @Part(name: 'cityEnName') String cityEnName,
-    @Part(name: 'cityArName') String cityArName,
-    @Part(name: 'countryEnName') String countryEnName,
-    @Part(name: 'countryArName') String countryArName,
+    @Part(name: 'countryId') int countryId,
+    @Part(name: 'ctyId') int ctyId,
+   
+    
   );
 }

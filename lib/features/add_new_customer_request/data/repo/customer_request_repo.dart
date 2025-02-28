@@ -18,10 +18,10 @@ class CustomerRequestRepo {
         customerRequestRequestBody.streetName??'',
         customerRequestRequestBody.subNumber??0,
         customerRequestRequestBody.zipCode??'',
-        customerRequestRequestBody.cityEnName??'',
-        customerRequestRequestBody.cityArName??'',
-        customerRequestRequestBody.countryEnName??'',
-        customerRequestRequestBody.countryArName??'',
+        customerRequestRequestBody.countryId??1,
+        customerRequestRequestBody.ctyId??0,
+      
+    
       );
       return response;
     } catch (error) {

@@ -29,10 +29,8 @@ class _ApiService implements ApiService {
     String streetName,
     int subNumber,
     String zipCode,
-    String cityEnName,
-    String cityArName,
-    String countryEnName,
-    String countryArName,
+    int countryId,
+    int ctyId,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -46,10 +44,8 @@ class _ApiService implements ApiService {
     _data.fields.add(MapEntry('streetName', streetName));
     _data.fields.add(MapEntry('subNumber', subNumber.toString()));
     _data.fields.add(MapEntry('zipCode', zipCode));
-    _data.fields.add(MapEntry('cityEnName', cityEnName));
-    _data.fields.add(MapEntry('cityArName', cityArName));
-    _data.fields.add(MapEntry('countryEnName', countryEnName));
-    _data.fields.add(MapEntry('countryArName', countryArName));
+    _data.fields.add(MapEntry('countryId', countryId.toString()));
+    _data.fields.add(MapEntry('ctyId', ctyId.toString()));
     final _options = _setStreamType<CustomerRequestResponseBody>(
       Options(
             method: 'POST',

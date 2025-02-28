@@ -12,12 +12,8 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
    TextEditingController creditLimitController = TextEditingController();
     TextEditingController buildingNumberController = TextEditingController();
      TextEditingController streetNameController = TextEditingController();
-      TextEditingController subNumberController = TextEditingController();
-            TextEditingController cityEnNameController = TextEditingController();
-             TextEditingController cityArNameController = TextEditingController();
-             TextEditingController countryEnNameController = TextEditingController();
-               TextEditingController zipCodeController = TextEditingController();
-               TextEditingController countryArNameController = TextEditingController();
+     TextEditingController subNumberController = TextEditingController();
+      TextEditingController zipCodeController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   CustomerRequestCubit(this._customerRequestRepo):super(const CustomerRequestState.initial() );
   void emitCustomerRequest()async {
@@ -33,10 +29,7 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
           streetName: streetNameController.text,
           subNumber: int.tryParse(subNumberController.text) ,
           zipCode: zipCodeController.text,
-          cityEnName: cityEnNameController.text,
-          cityArName: cityArNameController.text,
-          countryEnName: countryEnNameController.text,
-          countryArName: countryArNameController.text,
+        
         ),
       );
 
@@ -55,10 +48,6 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
   streetNameController.clear();
   subNumberController.clear();
   zipCodeController.clear();
-  cityEnNameController.clear();
-  cityArNameController.clear();
-  countryEnNameController.clear();
-  countryArNameController.clear();
 }
 
 }
