@@ -1,4 +1,3 @@
-import 'package:customer_request_task/core/helper/extensions.dart';
 import 'package:customer_request_task/core/helper/spacing.dart';
 import 'package:customer_request_task/core/theme/styles_manager.dart';
 import 'package:customer_request_task/core/widgets/app_text_button.dart';
@@ -14,18 +13,25 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Test"),),
-      body:Column(
-        children: [
-          const ColumnCustomerRequest(),
-          verticalSpace(16),
-          AppTextButton(buttonText:' buttonText', textStyle: TextStylesManager.font13GrayRegular, onPressed: ()async{
-            context.read< CustomerRequestCubit>().emitCustomerRequest();   
-            if(context.mounted){
-              context.pop();
-            }      }),
-            CustomerRequestBlocListener(),
-        ],
+      appBar: AppBar(
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        title: Text("Add New Customer Request Screen", style: TextStylesManager.font16BlackMedium,
+      ),),
+      body:  SingleChildScrollView(
+        child: Container(
+            margin: const EdgeInsets.fromLTRB(20, 16, 20, 28),
+          child: Column(
+            children: [
+              const ColumnCustomerRequest(),
+              verticalSpace(16),
+              AppTextButton(buttonText:'Add Detail', textStyle: TextStylesManager.font16WhiteRegular, onPressed: ()async{
+                context.read< CustomerRequestCubit>().emitCustomerRequest();   
+                  }),
+                CustomerRequestBlocListener(),
+            ],
+          ),
+        ),
       ) ,
     );
   }

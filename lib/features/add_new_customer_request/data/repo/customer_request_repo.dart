@@ -11,9 +11,9 @@ class CustomerRequestRepo {
     try {
       final response = await _apiService.customerRequest(
         customerRequestRequestBody.name,
-        customerRequestRequestBody.phoneNumber,
+        customerRequestRequestBody.phoneNumber??'',
         customerRequestRequestBody.taxNumber??'',
-        customerRequestRequestBody.creditLimit??0.0,
+        customerRequestRequestBody.creditLimit?? 0.0,
         customerRequestRequestBody.buildingNumber??'',
         customerRequestRequestBody.streetName??'',
         customerRequestRequestBody.subNumber??0,

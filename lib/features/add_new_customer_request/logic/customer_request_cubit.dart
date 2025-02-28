@@ -41,10 +41,25 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
       );
 
       emit(CustomerRequestState.success(response));
+      clearTextFields();
     } catch (error) {
       emit(CustomerRequestState.failure(error.toString()));
     }  
   }
+  void clearTextFields() {
+  nameController.clear();
+  phoneNumberController.clear();
+  taxNumberController.clear();
+  creditLimitController.clear();
+  buildingNumberController.clear();
+  streetNameController.clear();
+  subNumberController.clear();
+  zipCodeController.clear();
+  cityEnNameController.clear();
+  cityArNameController.clear();
+  countryEnNameController.clear();
+  countryArNameController.clear();
+}
 
 }
 

@@ -10,7 +10,7 @@ part of 'api_service.dart';
 
 class _ApiService implements ApiService {
   _ApiService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://national-quality.runasp.net/api';
+    baseUrl ??= 'https://national-quality.runasp.net/';
   }
 
   final Dio _dio;
@@ -59,7 +59,7 @@ class _ApiService implements ApiService {
           )
           .compose(
             _dio.options,
-            '/customer-request',
+            'api/v1/customer-requests',
             queryParameters: queryParameters,
             data: _data,
           )

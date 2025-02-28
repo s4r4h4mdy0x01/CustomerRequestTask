@@ -3,7 +3,7 @@ part 'customer_request_request_body.g.dart';
 @JsonSerializable()
 class CustomerRequestRequestBody {
   final String name;
-  final String phoneNumber;
+  final String? phoneNumber;
   final String? taxNumber;
   final double? creditLimit;
   final String? buildingNumber;
@@ -16,6 +16,6 @@ class CustomerRequestRequestBody {
   final String? countryArName;
 
 
-  CustomerRequestRequestBody({required this.name, required this.phoneNumber, required this.taxNumber, required this.creditLimit, required this.buildingNumber, required this.streetName, required this.subNumber, required this.zipCode, required this.cityEnName, required this.cityArName, required this.countryEnName, required this.countryArName,});
+  CustomerRequestRequestBody({required this.name,  this.phoneNumber,  this.taxNumber,  this.creditLimit, this.buildingNumber, this.streetName, this.subNumber, this.zipCode, this.cityEnName,  this.cityArName,  this.countryEnName, this.countryArName,});
    Map<String, dynamic> toJson() => _$CustomerRequestRequestBodyToJson(this);
 }

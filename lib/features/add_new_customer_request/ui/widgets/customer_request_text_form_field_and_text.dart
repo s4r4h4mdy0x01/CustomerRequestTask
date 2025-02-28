@@ -3,12 +3,12 @@ import 'package:customer_request_task/core/theme/styles_manager.dart';
 import 'package:customer_request_task/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class CustomerRequestValue extends StatelessWidget {
+class CustomerRequestTextFormFieldAndText extends StatelessWidget {
   final String text;
 
   final AppTextFormField appTextFormField;
 
-  const  CustomerRequestValue({
+  const  CustomerRequestTextFormFieldAndText({
     super.key,
     required this.text,
  
@@ -22,9 +22,7 @@ class CustomerRequestValue extends StatelessWidget {
       children: [
         Text(
           text,
-          style: TextStylesManager.font18BlackSemiBold,
-          maxLines: 2,
-       
+          style: TextStylesManager.font16PrimarySemiBold,
         ),
         verticalSpace(5),
      appTextFormField,

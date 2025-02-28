@@ -65,7 +65,7 @@ class AppTextFormField extends StatelessWidget {
         hintStyle: TextStylesManager.font13GrayRegular,
         suffixIcon: suffixIcon,
       ),
-      style: TextStylesManager.font18BlackSemiBold,
+      style: TextStylesManager.font16BlackMedium,
     );
   }
 }
