@@ -7,13 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CustomerRequestCubit extends Cubit<CustomerRequestState> {
   final CustomerRequestRepo _customerRequestRepo;
    TextEditingController nameController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController taxNumberController = TextEditingController();
-   TextEditingController creditLimitController = TextEditingController();
+    TextEditingController phoneNumberController = TextEditingController();
+    TextEditingController taxNumberController = TextEditingController();
+    TextEditingController creditLimitController = TextEditingController();
     TextEditingController buildingNumberController = TextEditingController();
-     TextEditingController streetNameController = TextEditingController();
-     TextEditingController subNumberController = TextEditingController();
-      TextEditingController zipCodeController = TextEditingController();
+    TextEditingController streetNameController = TextEditingController();
+    TextEditingController subNumberController = TextEditingController();
+    TextEditingController zipCodeController = TextEditingController();
+    int? countryId = 1; 
   final formKey = GlobalKey<FormState>();
   CustomerRequestCubit(this._customerRequestRepo):super(const CustomerRequestState.initial() );
   void emitCustomerRequest()async {
@@ -29,6 +30,7 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
           streetName: streetNameController.text,
           subNumber: int.tryParse(subNumberController.text) ,
           zipCode: zipCodeController.text,
+           countryId: countryId,
         
         ),
       );
@@ -38,6 +40,10 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
     } catch (error) {
       emit(CustomerRequestState.failure(error.toString()));
     }  
+  }
+   void setCountryId(int newCountryId) {
+    countryId = newCountryId;
+      
   }
   void clearTextFields() {
   nameController.clear();

@@ -33,6 +33,17 @@ class ColumnCustomerRequest extends StatelessWidget {
          keyboardType: TextInputType.name
          ,controller: context.read<CustomerRequestCubit>().zipCodeController , ),
           text: 'Zip Code',),
+          DropdownButton<int>(
+            value: context.read<CustomerRequestCubit>().countryId,
+            items: const [
+              DropdownMenuItem(value: 1, child: Text('Saudi Arabia')),
+            ],
+            onChanged: (value) {
+              if (value != null) {
+              context.read<CustomerRequestCubit>().setCountryId(value);
+              }
+            },
+          ),
             
       ],
     ));
