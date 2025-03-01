@@ -19,7 +19,7 @@ class CustomerRequestRepo {
         customerRequestRequestBody.subNumber??0,
         customerRequestRequestBody.zipCode??'',
         customerRequestRequestBody.countryId??1,
-        customerRequestRequestBody.ctyId??0,
+        customerRequestRequestBody.ctyId??1,
       
     
       );

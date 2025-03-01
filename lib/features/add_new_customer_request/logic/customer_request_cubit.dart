@@ -15,6 +15,7 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
     TextEditingController subNumberController = TextEditingController();
     TextEditingController zipCodeController = TextEditingController();
     int? countryId = 1; 
+      int? cityId = 1; 
   final formKey = GlobalKey<FormState>();
   CustomerRequestCubit(this._customerRequestRepo):super(const CustomerRequestState.initial() );
   void emitCustomerRequest()async {
@@ -31,6 +32,7 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
           subNumber: int.tryParse(subNumberController.text) ,
           zipCode: zipCodeController.text,
            countryId: countryId,
+           ctyId: cityId
         
         ),
       );
@@ -43,6 +45,10 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
   }
    void setCountryId(int newCountryId) {
     countryId = newCountryId;
+      
+  }
+    void setCityId(int newCityId) {
+    cityId = newCityId;
       
   }
   void clearTextFields() {

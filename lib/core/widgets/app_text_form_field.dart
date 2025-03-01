@@ -7,6 +7,7 @@ class AppTextFormField extends StatelessWidget {
   const AppTextFormField(
       {super.key,
       this.contentPadding,
+      this.textDirection,
       this.suffixIcon,
       this.fillColorBackground,
       this.hintStyle,
@@ -16,7 +17,7 @@ class AppTextFormField extends StatelessWidget {
       required this.hintText,
       this.focusedBorder,
       this.enabledBorder,
-      this.validator});
+      this.validator, });
   final EdgeInsetsGeometry? contentPadding;
   final Color? fillColorBackground;
   final Widget? suffixIcon;
@@ -28,9 +29,11 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final Function(String?)? validator;
+  final TextDirection?  textDirection;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textDirection: textDirection,
       controller: controller,
       validator: (value) {
         return validator!(value);

@@ -16,7 +16,7 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text("Add New Customer Request Screen", style: TextStylesManager.font16BlackMedium,
+        title: Text("شاشة إضافة طلب عميل جديد", style: TextStylesManager.font16BlackMedium,
       ),),
       body:  SingleChildScrollView(
         child: Container(
@@ -25,7 +25,7 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
             children: [
               const ColumnCustomerRequest(),
               verticalSpace(16),
-              AppTextButton(buttonText:'Add Detail', textStyle: TextStylesManager.font16WhiteRegular, onPressed: ()async{
+              AppTextButton(buttonText:'اضافة التفاصيل', textStyle: TextStylesManager.font16WhiteRegular, onPressed: ()async{
                 context.read< CustomerRequestCubit>().emitCustomerRequest();   
                   }),
                 CustomerRequestBlocListener(),
