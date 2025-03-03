@@ -7,21 +7,22 @@ class CustomerRequestRepo {
 
   CustomerRequestRepo(this._apiService);
 
-   Future<CustomerRequestResponseBody?> customerRequest(CustomerRequestRequestBody customerRequestRequestBody) async {
+  Future<CustomerRequestResponseBody?> customerRequest(
+    CustomerRequestRequestBody customerRequestRequestBody,
+  ) async {
     try {
       final response = await _apiService.customerRequest(
         customerRequestRequestBody.name,
-        customerRequestRequestBody.phoneNumber??'',
-        customerRequestRequestBody.taxNumber??'',
-        customerRequestRequestBody.creditLimit?? 0.0,
-        customerRequestRequestBody.buildingNumber??'',
-        customerRequestRequestBody.streetName??'',
-        customerRequestRequestBody.subNumber??0,
-        customerRequestRequestBody.zipCode??'',
-        customerRequestRequestBody.countryId??1,
-        customerRequestRequestBody.ctyId??1,
-      
-    
+        customerRequestRequestBody.phoneNumber ?? '',
+        customerRequestRequestBody.taxNumber ?? '',
+        customerRequestRequestBody.creditLimit ?? 0.0,
+        customerRequestRequestBody.buildingNumber ?? '',
+        customerRequestRequestBody.streetName ?? '',
+        customerRequestRequestBody.subNumber ?? 0,
+        customerRequestRequestBody.zipCode ?? '',
+        customerRequestRequestBody.countryId ?? 1,
+        customerRequestRequestBody.cityId ?? 1,
+        customerRequestRequestBody.files ?? [],
       );
       return response;
     } catch (error) {

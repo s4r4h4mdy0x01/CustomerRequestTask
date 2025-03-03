@@ -4,11 +4,12 @@ import 'package:dio/dio.dart';
 
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
-@RestApi(baseUrl:ApiConstants.baseUrl)
+
+@RestApi(baseUrl: ApiConstants.baseUrl)
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
-   @POST(ApiConstants.customerRequestEndpoint)
-    @MultiPart()
+  @POST(ApiConstants.customerRequestEndpoint)
+  @MultiPart()
   Future<CustomerRequestResponseBody> customerRequest(
     @Part(name: 'name') String name,
     @Part(name: 'phoneNumber') String phoneNumber,
@@ -19,8 +20,7 @@ abstract class ApiService {
     @Part(name: 'subNumber') int subNumber,
     @Part(name: 'zipCode') String zipCode,
     @Part(name: 'countryId') int countryId,
-    @Part(name: 'ctyId') int ctyId,
-   
-    
+    @Part(name: 'cityId') int cityId,
+    @Part(name: 'files') List<MultipartFile> files,
   );
 }

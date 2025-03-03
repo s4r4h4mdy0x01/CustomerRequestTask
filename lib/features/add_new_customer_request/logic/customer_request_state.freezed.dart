@@ -171,6 +171,142 @@ as T,
 /// @nodoc
 
 
+class FilesUpdated<T> implements CustomerRequestState<T> {
+  const FilesUpdated(final  List<File> files): _files = files;
+  
+
+ final  List<File> _files;
+ List<File> get files {
+  if (_files is EqualUnmodifiableListView) return _files;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_files);
+}
+
+
+/// Create a copy of CustomerRequestState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FilesUpdatedCopyWith<T, FilesUpdated<T>> get copyWith => _$FilesUpdatedCopyWithImpl<T, FilesUpdated<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilesUpdated<T>&&const DeepCollectionEquality().equals(other._files, _files));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_files));
+
+@override
+String toString() {
+  return 'CustomerRequestState<$T>.filesUpdated(files: $files)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $FilesUpdatedCopyWith<T,$Res>  {
+  factory $FilesUpdatedCopyWith(FilesUpdated<T> value, $Res Function(FilesUpdated<T>) _then) = _$FilesUpdatedCopyWithImpl;
+@useResult
+$Res call({
+ List<File> files
+});
+
+
+
+}
+/// @nodoc
+class _$FilesUpdatedCopyWithImpl<T,$Res>
+    implements $FilesUpdatedCopyWith<T, $Res> {
+  _$FilesUpdatedCopyWithImpl(this._self, this._then);
+
+  final FilesUpdated<T> _self;
+  final $Res Function(FilesUpdated<T>) _then;
+
+/// Create a copy of CustomerRequestState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? files = null,}) {
+  return _then(FilesUpdated<T>(
+null == files ? _self.files : files // ignore: cast_nullable_to_non_nullable
+as List<File>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class FailureFilePick<T> implements CustomerRequestState<T> {
+  const FailureFilePick(this.error);
+  
+
+ final  String error;
+
+/// Create a copy of CustomerRequestState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FailureFilePickCopyWith<T, FailureFilePick<T>> get copyWith => _$FailureFilePickCopyWithImpl<T, FailureFilePick<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FailureFilePick<T>&&(identical(other.error, error) || other.error == error));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,error);
+
+@override
+String toString() {
+  return 'CustomerRequestState<$T>.failureFilePick(error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $FailureFilePickCopyWith<T,$Res>  {
+  factory $FailureFilePickCopyWith(FailureFilePick<T> value, $Res Function(FailureFilePick<T>) _then) = _$FailureFilePickCopyWithImpl;
+@useResult
+$Res call({
+ String error
+});
+
+
+
+}
+/// @nodoc
+class _$FailureFilePickCopyWithImpl<T,$Res>
+    implements $FailureFilePickCopyWith<T, $Res> {
+  _$FailureFilePickCopyWithImpl(this._self, this._then);
+
+  final FailureFilePick<T> _self;
+  final $Res Function(FailureFilePick<T>) _then;
+
+/// Create a copy of CustomerRequestState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(FailureFilePick<T>(
+null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class Failure<T> implements CustomerRequestState<T> {
   const Failure(this.error);
   

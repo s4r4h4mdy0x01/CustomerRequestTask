@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'customer_request_state.freezed.dart';
@@ -7,5 +9,7 @@ class CustomerRequestState<T> with _$CustomerRequestState<T> {
   const factory CustomerRequestState.initial() = _Initial;
   const factory CustomerRequestState.loading() = Loading;
   const factory CustomerRequestState.success(T data) = Success<T>;
+ const factory CustomerRequestState.filesUpdated(List<File> files) = FilesUpdated;
+    const factory CustomerRequestState.failureFilePick(String error) = FailureFilePick;
   const factory CustomerRequestState.failure(String error) = Failure;
 }

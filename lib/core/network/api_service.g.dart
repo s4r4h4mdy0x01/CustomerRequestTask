@@ -30,7 +30,8 @@ class _ApiService implements ApiService {
     int subNumber,
     String zipCode,
     int countryId,
-    int ctyId,
+    int cityId,
+    List<MultipartFile> files,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -45,7 +46,8 @@ class _ApiService implements ApiService {
     _data.fields.add(MapEntry('subNumber', subNumber.toString()));
     _data.fields.add(MapEntry('zipCode', zipCode));
     _data.fields.add(MapEntry('countryId', countryId.toString()));
-    _data.fields.add(MapEntry('ctyId', ctyId.toString()));
+    _data.fields.add(MapEntry('cityId', cityId.toString()));
+    _data.files.addAll(files.map((i) => MapEntry('files', i)));
     final _options = _setStreamType<CustomerRequestResponseBody>(
       Options(
             method: 'POST',

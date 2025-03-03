@@ -8,11 +8,11 @@ class CustomerRequestTextFormFieldAndText extends StatelessWidget {
 
   final AppTextFormField appTextFormField;
 
-  const  CustomerRequestTextFormFieldAndText({
+  const CustomerRequestTextFormFieldAndText({
     super.key,
     required this.text,
- 
-  required this.appTextFormField,
+
+    required this.appTextFormField,
   });
 
   @override
@@ -20,12 +20,9 @@ class CustomerRequestTextFormFieldAndText extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          text,
-          style: TextStylesManager.font16PrimarySemiBold,
-        ),
+        Text(text, style: TextStylesManager.font16PrimarySemiBold),
         verticalSpace(5),
-     appTextFormField,
+        appTextFormField,
       ],
     );
   }

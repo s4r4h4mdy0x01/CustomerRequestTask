@@ -1,6 +1,5 @@
-import 'package:json_annotation/json_annotation.dart';
-part 'customer_request_request_body.g.dart';
-@JsonSerializable()
+import 'package:dio/dio.dart';
+
 class CustomerRequestRequestBody {
   final String name;
   final String? phoneNumber;
@@ -9,22 +8,22 @@ class CustomerRequestRequestBody {
   final String? buildingNumber;
   final String? streetName;
   final int? subNumber;
-  final int? ctyId;
-   final int? countryId;
+  final int? cityId;
+  final int? countryId;
   final String? zipCode;
- 
+  final List<MultipartFile>? files;
 
-
-  CustomerRequestRequestBody( {required this.name, 
-   this.phoneNumber,
-     this.taxNumber,  
+  CustomerRequestRequestBody({
+    required this.name,
+    this.phoneNumber,
+    this.taxNumber,
     this.creditLimit,
-     this.buildingNumber,
-      this.streetName,
-      this.subNumber,
+    this.buildingNumber,
+    this.streetName,
+    this.subNumber,
     this.zipCode,
-     this.countryId,
-        this.ctyId,
-        });
-   Map<String, dynamic> toJson() => _$CustomerRequestRequestBodyToJson(this);
+    this.countryId,
+    this.cityId,
+    this.files,
+  });
 }
