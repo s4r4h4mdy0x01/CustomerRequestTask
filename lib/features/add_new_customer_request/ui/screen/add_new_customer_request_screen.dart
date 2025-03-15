@@ -14,10 +14,10 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        automaticallyImplyLeading: false,
+        backgroundColor: Colors.blue,
+
         title: Text(
-          "شاشة إضافة طلب عميل جديد",
+          'فتح حساب جديد',
           style: TextStylesManager.font16BlackMedium,
         ),
       ),
@@ -27,10 +27,10 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
           child: Column(
             children: [
               const ColumnCustomerRequest(),
-              verticalSpace(16),
+              verticalSpace(30),
               AppTextButton(
-                buttonText: 'اضافة التفاصيل',
-                textStyle: TextStylesManager.font16WhiteRegular,
+                buttonText: 'حفظ الحساب ',
+                textStyle: TextStylesManager.font16PurpleSemiBold,
                 onPressed: () async {
                   context.read<CustomerRequestCubit>().emitCustomerRequest();
                 },

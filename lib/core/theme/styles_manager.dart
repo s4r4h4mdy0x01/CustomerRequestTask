@@ -21,6 +21,11 @@ class TextStylesManager {
     fontWeight: FontWeightManager.semiBold,
     color: ColorManager.primary,
   );
+  static TextStyle font16PurpleSemiBold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightManager.semiBold,
+    color: Colors.purple,
+  );
 
   static TextStyle font13GrayRegular = TextStyle(
     fontSize: 14.sp,

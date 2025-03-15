@@ -34,6 +34,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      //   textAlign: TextAlign.left,
       textDirection: textDirection,
       controller: controller,
       validator: (value) {
@@ -45,30 +46,31 @@ class AppTextFormField extends StatelessWidget {
         isDense: true,
         contentPadding:
             contentPadding ??
-            EdgeInsets.symmetric(vertical: 20.h, horizontal: 18.w),
-        filled: true,
-        fillColor: fillColorBackground ?? ColorManager.lightGrey,
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorManager.error, width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        enabledBorder:
-            enabledBorder ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16.0),
-              borderSide: BorderSide(color: ColorManager.grey),
-            ),
-        focusedBorder:
-            focusedBorder ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16.0),
-              borderSide: BorderSide(color: ColorManager.primary),
-            ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16.0),
-          borderSide: BorderSide(color: ColorManager.error, width: 1.3),
-        ),
+            EdgeInsets.symmetric(vertical: 10.h, horizontal: 18.w),
+        //  filled: true,
+        // fillColor: fillColorBackground ?? ColorManager.lightGrey,
+        // focusedErrorBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: ColorManager.error, width: 1.3),
+        //   borderRadius: BorderRadius.circular(16.0),
+        // ),
+        // enabledBorder:
+        //     enabledBorder ??
+        //     OutlineInputBorder(
+        //       borderRadius: BorderRadius.circular(16.0),
+        //       borderSide: BorderSide(color: ColorManager.grey),
+        //     ),
+        // focusedBorder:
+        //     focusedBorder ??
+        //     OutlineInputBorder(
+        //       borderRadius: BorderRadius.circular(16.0),
+        //       borderSide: BorderSide(color: ColorManager.primary),
+        //     ),
+        // errorBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(16.0),
+        //   borderSide: BorderSide(color: ColorManager.error, width: 1.3),
+        // ),
         hintText: hintText,
+
         hintStyle: TextStylesManager.font13GrayRegular,
         suffixIcon: suffixIcon,
       ),

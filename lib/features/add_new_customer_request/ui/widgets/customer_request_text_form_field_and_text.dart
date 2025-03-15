@@ -20,7 +20,7 @@ class CustomerRequestTextFormFieldAndText extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(text, style: TextStylesManager.font16PrimarySemiBold),
+        Text(text, style: TextStylesManager.font16BlackMedium),
         verticalSpace(5),
         appTextFormField,
       ],

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:customer_request_task/features/add_new_customer_request/data/models/customer_request_request_body.dart';
 import 'package:customer_request_task/features/add_new_customer_request/data/repo/customer_request_repo.dart';
@@ -25,6 +24,7 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
   final formKey = GlobalKey<FormState>();
   CustomerRequestCubit(this._customerRequestRepo)
     : super(const CustomerRequestState.initial());
+    
   Future<List<MultipartFile>> _convertFilesToMultipart(List<File> files) async {
     List<MultipartFile> multipartFiles = [];
     for (var file in files) {
@@ -99,7 +99,7 @@ class CustomerRequestCubit extends Cubit<CustomerRequestState> {
     );
     if (pickedImage != null) {
       final imageFile = File(pickedImage.path);
-      files.add(imageFile); // أضيفي الصورة إلى files بدلاً من images
+      files.add(imageFile); 
       emit(CustomerRequestState.filesUpdated(List.from(files)));
     }
   }

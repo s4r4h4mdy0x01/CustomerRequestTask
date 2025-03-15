@@ -31,50 +31,39 @@ class ColumnCustomerRequest extends StatelessWidget {
           children: [
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: 'الاسم',
+                hintText: 'أدخل اسم العميل ',
                 keyboardType: TextInputType.name,
                 controller: context.read<CustomerRequestCubit>().nameController,
                 textDirection: TextDirection.rtl,
               ),
-              text: 'الاسم',
+              text: ' اسم العميل:',
             ),
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: 'رقم الهاتف ',
+                hintText: 'أدخل رقم الهاتف',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.phone,
                 controller:
                     context.read<CustomerRequestCubit>().phoneNumberController,
               ),
-              text: 'رقم الهاتف',
+              text: ' رقم الهاتف:',
             ),
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: 'الرقم الضريبي',
+                hintText: 'أدخل الرقم الضريبى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.number,
                 controller:
                     context.read<CustomerRequestCubit>().taxNumberController,
               ),
-              text: 'الرقم الضريبي',
+              text: 'الرقم الضريبى:',
             ),
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: ' الحد الإتماني',
-                textDirection: TextDirection.rtl,
-                keyboardType: TextInputType.number,
-                controller:
-                    context.read<CustomerRequestCubit>().creditLimitController,
-              ),
-              text: ' الحد الإتماني',
-            ),
-            verticalSpace(10),
-            CustomerRequestTextFormFieldAndText(
-              appTextFormField: AppTextFormField(
-                hintText: 'رقم المبني',
+                hintText: 'أدخل رقم المبنى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.name,
                 controller:
@@ -82,40 +71,50 @@ class ColumnCustomerRequest extends StatelessWidget {
                         .read<CustomerRequestCubit>()
                         .buildingNumberController,
               ),
-              text: 'رقم المبني',
+              text: ' رقم المبنى:',
             ),
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: 'اسم الشارع ',
+                hintText: 'أدخل اسم الشارع',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.name,
                 controller:
                     context.read<CustomerRequestCubit>().streetNameController,
               ),
-              text: 'اسم الشارع ',
+              text: ' اسم الشارع:',
             ),
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: 'الرقم الفرعي',
+                hintText: 'أدخل الرقم الفرعى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.number,
                 controller:
                     context.read<CustomerRequestCubit>().subNumberController,
               ),
-              text: 'الرقم الفرعي',
+              text: ' الرقم الفرعى:',
             ),
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                hintText: 'الرمز البريدى ',
+                hintText: 'أدخل العنوان الوطنى ',
                 keyboardType: TextInputType.name,
                 controller:
                     context.read<CustomerRequestCubit>().zipCodeController,
                 textDirection: TextDirection.rtl,
               ),
-              text: 'الرمز البريدى ',
+              text: ' العنوان الوطنى:',
+            ),
+            CustomerRequestTextFormFieldAndText(
+              appTextFormField: AppTextFormField(
+                hintText: 'أدخل الحد الإتمانى',
+                textDirection: TextDirection.rtl,
+                keyboardType: TextInputType.number,
+                controller:
+                    context.read<CustomerRequestCubit>().creditLimitController,
+              ),
+              text: ' الحد الإتمانى:',
             ),
             verticalSpace(15),
             CustomDropdownField(
@@ -139,6 +138,7 @@ class ColumnCustomerRequest extends StatelessWidget {
                 }
               },
             ),
+            verticalSpace(15),
             ChoosingFiles(),
           ],
         ),
