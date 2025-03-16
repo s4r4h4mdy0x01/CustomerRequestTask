@@ -18,6 +18,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.validator,
+    this.filled,
   });
   final EdgeInsetsGeometry? contentPadding;
   final Color? fillColorBackground;
@@ -27,6 +28,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final bool? obscureText;
+  final bool? filled;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final Function(String?)? validator;
@@ -34,12 +36,13 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      //   textAlign: TextAlign.left,
+      textAlign: TextAlign.right,
       textDirection: textDirection,
       controller: controller,
       validator: (value) {
         return validator!(value);
       },
+
       obscureText: obscureText ?? false,
       keyboardType: keyboardType ?? TextInputType.none,
       decoration: InputDecoration(
@@ -47,8 +50,9 @@ class AppTextFormField extends StatelessWidget {
         contentPadding:
             contentPadding ??
             EdgeInsets.symmetric(vertical: 10.h, horizontal: 18.w),
-        //  filled: true,
-        // fillColor: fillColorBackground ?? ColorManager.lightGrey,
+        filled: filled ?? false,
+        fillColor: fillColorBackground ?? Colors.white,
+
         // focusedErrorBorder: OutlineInputBorder(
         //   borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         //   borderRadius: BorderRadius.circular(16.0),
@@ -69,11 +73,16 @@ class AppTextFormField extends StatelessWidget {
         //   borderRadius: BorderRadius.circular(16.0),
         //   borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         // ),
-        hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
 
         hintStyle: TextStylesManager.font13GrayRegular,
+        hintTextDirection: TextDirection.rtl,
         suffixIcon: suffixIcon,
       ),
+
       style: TextStylesManager.font16BlackMedium,
     );
   }

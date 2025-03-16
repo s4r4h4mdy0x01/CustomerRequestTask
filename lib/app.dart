@@ -19,7 +19,7 @@ class AddNewCustomerRequestApp extends StatelessWidget {
           title: 'Add New Customer Request Task',
           theme: ThemeData(),
           onGenerateRoute: AppRouter.onGenerate,
-          initialRoute: RoutesString.addNewCustomerRequest),
+          initialRoute: RoutesString.splashLoginOrLoginInstitution),
     );
   }
 }

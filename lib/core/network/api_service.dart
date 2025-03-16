@@ -1,5 +1,7 @@
 import 'package:customer_request_task/core/network/api_constants.dart';
 import 'package:customer_request_task/features/add_new_customer_request/data/models/customer_request_response_body.dart';
+import 'package:customer_request_task/features/auth/data/authintication/auth_model.dart';
+import 'package:customer_request_task/features/auth/data/authintication/success_model.dart';
 import 'package:dio/dio.dart';
 
 import 'package:retrofit/retrofit.dart';
@@ -23,4 +25,6 @@ abstract class ApiService {
     @Part(name: 'cityId') int cityId,
     @Part(name: 'files') List<MultipartFile> files,
   );
+  @POST(ApiConstants.login)
+  Future<SuccessModel> login(@Body() AuthModel authModel);
 }

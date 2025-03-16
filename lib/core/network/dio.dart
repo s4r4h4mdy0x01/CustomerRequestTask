@@ -24,9 +24,9 @@ class DioFactory {
 
   static void addDioHeaders() async {
     dio?.options.headers = {
-      'Content-Type': 'multipart/form-data',
+      'Content-Type': 'application/json',
       'Authorization':
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJleHAiOjE3NDEyNjczNTQsImlzcyI6Imh0dHA6Ly9uYXRpb25hbC1xdWFsaXR5LmNvbSIsImF1ZCI6Imh0dHA6Ly9uYXRpb25hbC1xdWFsaXR5LmNvbSJ9.qv2RQ12p7kDvNHuqrU0w7QeQMi8Y-lhar3WJ-r9JnqU',
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJleHAiOjE3NDI2NDM5OTksImlzcyI6Imh0dHA6Ly9uYXRpb25hbC1xdWFsaXR5LmNvbSIsImF1ZCI6Imh0dHA6Ly9uYXRpb25hbC1xdWFsaXR5LmNvbSJ9.T2QCLROHdcsz4w4caGoydWj-19zxKTEdh91a2F8ttqw',
     };
   }
 

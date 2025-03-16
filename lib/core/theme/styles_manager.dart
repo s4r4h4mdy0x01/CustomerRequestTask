@@ -4,13 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextStylesManager {
-
   static TextStyle font18BlackSemiBold = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightManager.semiBold,
     color: ColorManager.black,
   );
-
+  static TextStyle font30BlueBold = TextStyle(
+    fontSize: 30.sp,
+    fontWeight: FontWeightManager.bold,
+    color: ColorManager.blue,
+  );
+  static TextStyle font30OrangeRegular = TextStyle(
+    fontSize: 30.sp,
+    fontWeight: FontWeightManager.regular,
+    color: ColorManager.orange,
+  );
+  static TextStyle font25TealRegular = TextStyle(
+    fontSize: 25.sp,
+    fontWeight: FontWeightManager.regular,
+    color: ColorManager.teal,
+  );
   static TextStyle font13OrangRegular = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeightManager.regular,
@@ -32,15 +45,12 @@ class TextStylesManager {
     fontWeight: FontWeightManager.regular,
     color: ColorManager.grey,
   );
-  
+
   static TextStyle font16WhiteRegular = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightManager.regular,
     color: ColorManager.white,
   );
-
-
-  
 
   static TextStyle font16BlackMedium = TextStyle(
     fontSize: 16.sp,

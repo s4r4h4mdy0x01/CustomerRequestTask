@@ -10,7 +10,9 @@ class ColorManager {
   static Color white = const Color(0xffFFFFFF);
   static Color error = const Color(0xffe61f34);
   static Color purple = const Color.fromARGB(255, 231, 209, 235);
-
+  static const Color blue = Colors.blue;
   static const Color rad = Colors.red;
+  static const Color orange = Colors.orange;
+  static const Color teal = Colors.teal;
   static Color black = Colors.black;
 }
