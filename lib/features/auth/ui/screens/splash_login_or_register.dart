@@ -7,8 +7,8 @@ import 'package:customer_request_task/features/auth/ui/widgets/auth_logo.dart';
 import 'package:customer_request_task/features/auth/ui/widgets/auth_titles.dart';
 import 'package:flutter/material.dart';
 
-class SplashLoginOrLoginInstitution extends StatelessWidget {
-  const SplashLoginOrLoginInstitution({super.key});
+class SplashLoginOrRegister extends StatelessWidget {
+  const SplashLoginOrRegister({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class SplashLoginOrLoginInstitution extends StatelessWidget {
               color: ColorManager.teal,
               text: 'تسجيل المؤسسة',
               onPressed: () {
-                context.pushNamed(RoutesString.loginInstitutionScreen);
+                context.pushNamed(RoutesString.registerScreen);
               },
             ),
           ],

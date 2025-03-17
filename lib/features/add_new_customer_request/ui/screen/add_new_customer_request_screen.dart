@@ -29,6 +29,7 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
               const ColumnCustomerRequest(),
               verticalSpace(30),
               AppTextButton(
+                isLoading: false,
                 buttonText: 'حفظ الحساب ',
                 textStyle: TextStylesManager.font16PurpleSemiBold,
                 onPressed: () async {

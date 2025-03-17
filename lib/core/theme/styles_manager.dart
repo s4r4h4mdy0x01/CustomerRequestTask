@@ -24,11 +24,7 @@ class TextStylesManager {
     fontWeight: FontWeightManager.regular,
     color: ColorManager.teal,
   );
-  static TextStyle font13OrangRegular = TextStyle(
-    fontSize: 13.sp,
-    fontWeight: FontWeightManager.regular,
-    color: ColorManager.primary,
-  );
+
   static TextStyle font16PrimarySemiBold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightManager.semiBold,
@@ -54,7 +50,18 @@ class TextStylesManager {
 
   static TextStyle font16BlackMedium = TextStyle(
     fontSize: 16.sp,
-    fontWeight: FontWeightManager.semiBold,
+    fontWeight: FontWeightManager.medium,
+    color: ColorManager.black,
+  );
+  static TextStyle font16BlackRegular = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightManager.regular,
+    color: ColorManager.black,
+  );
+
+  static TextStyle font15BlackMedium = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeightManager.medium,
     color: ColorManager.black,
   );
 }

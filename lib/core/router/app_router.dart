@@ -3,10 +3,10 @@ import 'package:customer_request_task/core/router/routes_string.dart';
 import 'package:customer_request_task/features/add_new_customer_request/logic/customer_request_cubit.dart';
 import 'package:customer_request_task/features/add_new_customer_request/ui/screen/add_new_customer_request_screen.dart';
 import 'package:customer_request_task/features/auth/logic/login_cubit.dart';
-import 'package:customer_request_task/features/auth/logic/login_institution_cubit.dart';
-import 'package:customer_request_task/features/auth/ui/screens/login_institution_screen.dart';
+import 'package:customer_request_task/features/auth/logic/register_cubit.dart';
+import 'package:customer_request_task/features/auth/ui/screens/register_screen.dart';
 import 'package:customer_request_task/features/auth/ui/screens/login_screen.dart';
-import 'package:customer_request_task/features/auth/ui/screens/splash_login_or_login_institution.dart';
+import 'package:customer_request_task/features/auth/ui/screens/splash_login_or_register.dart';
 import 'package:customer_request_task/features/employee/employee_screen.dart';
 import 'package:customer_request_task/features/leader/ui/leader_screen.dart';
 import 'package:customer_request_task/features/sales/ui/sales_screen.dart';
@@ -24,9 +24,9 @@ class AppRouter {
                 child: const AddNewCustomerRequestScreen(),
               ),
         );
-      case RoutesString.splashLoginOrLoginInstitution:
+      case RoutesString.splashLoginOrRegister:
         return MaterialPageRoute(
-          builder: (context) => const SplashLoginOrLoginInstitution(),
+          builder: (context) => const SplashLoginOrRegister(),
         );
       case RoutesString.leader:
         return MaterialPageRoute(builder: (context) => const LeaderScreen());
@@ -39,12 +39,12 @@ class AppRouter {
               (context) => const SalesScreen(userRole: '', accessToken: ''),
         );
 
-      case RoutesString.loginInstitutionScreen:
+      case RoutesString.registerScreen:
         return MaterialPageRoute(
           builder:
               (context) => BlocProvider(
-                create: (context) => LoginInstitutionCubit(),
-                child: const LoginInstitutionScreen(),
+                create: (context) => RegisterCubit(),
+                child: const RegisterScreen(),
               ),
         );
 

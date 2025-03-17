@@ -11,7 +11,8 @@ class AppTextButton extends StatelessWidget {
   final double? buttonHeight;
   final String buttonText;
   final TextStyle textStyle;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
+  final bool isLoading;
   const AppTextButton({
     super.key,
     this.borderRadius,
@@ -22,7 +23,8 @@ class AppTextButton extends StatelessWidget {
     this.buttonWidth,
     required this.buttonText,
     required this.textStyle,
-    required this.onPressed,
+    this.onPressed,
+    required this.isLoading ,
   });
 
   @override
@@ -31,16 +33,16 @@ class AppTextButton extends StatelessWidget {
       style: ButtonStyle(
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 18.0),
+            borderRadius: BorderRadius.circular(borderRadius ?? 20.0),
           ),
         ),
         backgroundColor: WidgetStatePropertyAll(
-          backgroundColor ?? ColorManager.purple,
+          backgroundColor ?? ColorManager.primary,
         ),
         padding: WidgetStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(
-            horizontal: horizontalPadding?.w ?? 12.w,
-            vertical: verticalPadding?.h ?? 14.h,
+            horizontal: horizontalPadding?.w ?? 40.w,
+            vertical: verticalPadding?.h ?? 10.h,
           ),
         ),
         fixedSize: WidgetStateProperty.all(
@@ -48,7 +50,10 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(buttonText, style: textStyle),
+      child:
+          isLoading
+              ? const CircularProgressIndicator(color: Colors.white)
+              : Text(buttonText, style: textStyle),
     );
   }
 }

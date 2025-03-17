@@ -1,6 +1,7 @@
+import 'package:customer_request_task/core/theme/styles_manager.dart';
+import 'package:customer_request_task/core/widgets/app_text_button.dart';
 import 'package:customer_request_task/features/auth/logic/login_cubit.dart';
 import 'package:customer_request_task/features/auth/logic/login_state.dart';
-import 'package:customer_request_task/features/auth/ui/widgets/custom_button_login.dart';
 import 'package:customer_request_task/features/sales/ui/sales_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,8 +38,9 @@ class LoginBlocConsumer extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return CustomButtonLogin(
-          title: 'دخول',
+        return AppTextButton(
+          buttonText: 'دخول',
+          textStyle: TextStylesManager.font16WhiteRegular,
           onPressed: state is Loading ? null : loginCubit.emitLoginStates,
           isLoading: state is Loading,
         );

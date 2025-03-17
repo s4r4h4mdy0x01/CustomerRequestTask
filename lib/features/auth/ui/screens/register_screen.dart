@@ -1,19 +1,22 @@
-import 'package:customer_request_task/features/auth/logic/login_institution_cubit.dart';
-import 'package:customer_request_task/features/auth/logic/login_institution_state.dart';
-import 'package:customer_request_task/features/auth/ui/widgets/custom_auth_text_form_field.dart';
-import 'package:customer_request_task/features/auth/ui/widgets/custom_button_login.dart';
+import 'package:customer_request_task/core/helper/spacing.dart';
+import 'package:customer_request_task/core/theme/styles_manager.dart';
+import 'package:customer_request_task/core/widgets/app_text_button.dart';
+import 'package:customer_request_task/core/widgets/app_text_form_field.dart';
+import 'package:customer_request_task/features/auth/logic/register_cubit.dart';
+import 'package:customer_request_task/features/auth/logic/register_state.dart';
 import 'package:customer_request_task/features/auth/ui/widgets/logo_name_company.dart';
+import 'package:customer_request_task/features/auth/ui/widgets/password_field.dart';
 import 'package:customer_request_task/features/auth/ui/widgets/register_dropdown_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginInstitutionScreen extends StatelessWidget {
-  const LoginInstitutionScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginInstitutionCubit(),
+      create: (context) => RegisterCubit(),
       child: Scaffold(
         backgroundColor: Colors.grey[200],
         body: SingleChildScrollView(
@@ -39,21 +42,20 @@ class RegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginInstitutionCubit, LoginInstitutionState>(
+    return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
-        final cubit = context.read<LoginInstitutionCubit>();
+        final cubit = context.read<RegisterCubit>();
         return Column(
           children: [
-            CustomAuthTextFormField(
-              controller: cubit.firstNameController,
-              hint: 'الاسم الأول',
-            ),
             Row(
               children: [
                 Expanded(
-                  child: CustomAuthTextFormField(
+                  child: AppTextFormField(
                     controller: cubit.firstNameController,
-                    hint: 'الاسم الأول',
+                    hintText: 'الاسم الأول',
+                    filled: true,
+                    fillColorBackground: Colors.white,
+                    keyboardType: TextInputType.name,
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -65,31 +67,42 @@ class RegisterForm extends StatelessWidget {
                 ),
               ],
             ),
-            CustomAuthTextFormField(
+            verticalSpace(10),
+            AppTextFormField(
               controller: cubit.lastNameController,
-              hint: 'اسم العائلة',
+              hintText: 'اسم العائلة',
+              filled: true,
+              fillColorBackground: Colors.white,
+              keyboardType: TextInputType.name,
             ),
-            CustomAuthTextFormField(
+            verticalSpace(10),
+            AppTextFormField(
               controller: cubit.emailPhoneController,
-              hint: 'الهاتف أو البريد الإلكتروني',
+              hintText: 'الهاتف أو البريد الإلكتروني',
+              filled: true,
+              fillColorBackground: Colors.white,
+              keyboardType: TextInputType.emailAddress,
             ),
-            CustomAuthTextFormField(
+            verticalSpace(10),
+            PasswordField(
               controller: cubit.passwordController,
               hint: 'كلمة المرور',
             ),
-            CustomAuthTextFormField(
+            PasswordField(
               controller: cubit.confirmPasswordController,
               hint: 'تأكيد كلمة المرور',
             ),
 
-            const SizedBox(height: 20),
-            CustomButtonLogin(
+            verticalSpace(20),
+
+            AppTextButton(
+              isLoading: false,
+              buttonText: 'التالى',
+              textStyle: TextStylesManager.font16WhiteRegular,
               onPressed:
                   state.isRegisterButtonEnabled
                       ? () => cubit.navigateBasedOnEmployeeStatus(context)
                       : null,
-              isLoading: false,
-              title: 'التالى',
             ),
           ],
         );

@@ -1,4 +1,3 @@
-import 'package:customer_request_task/core/theme/color_manager.dart';
 import 'package:customer_request_task/core/theme/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,12 +45,12 @@ class AppTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
       keyboardType: keyboardType ?? TextInputType.none,
       decoration: InputDecoration(
-        isDense: true,
+        //  isDense: true,
         contentPadding:
             contentPadding ??
-            EdgeInsets.symmetric(vertical: 10.h, horizontal: 18.w),
+            EdgeInsets.symmetric(vertical: 18.h, horizontal: 18.w),
         filled: filled ?? false,
-        fillColor: fillColorBackground ?? Colors.white,
+        fillColor: fillColorBackground,
 
         // focusedErrorBorder: OutlineInputBorder(
         //   borderSide: BorderSide(color: ColorManager.error, width: 1.3),
@@ -77,13 +76,13 @@ class AppTextFormField extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
         ),
-
-        hintStyle: TextStylesManager.font13GrayRegular,
+        hintText: hintText,
+        hintStyle: TextStylesManager.font15BlackMedium,
         hintTextDirection: TextDirection.rtl,
         suffixIcon: suffixIcon,
       ),
 
-      style: TextStylesManager.font16BlackMedium,
+      style: TextStylesManager.font16BlackRegular,
     );
   }
 }

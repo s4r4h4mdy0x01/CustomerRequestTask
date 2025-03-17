@@ -1,17 +1,17 @@
-class LoginInstitutionState {
+class RegisterState {
   final String? selectedEmployeeStatus;
   final bool isRegisterButtonEnabled;
 
-  LoginInstitutionState({
+  RegisterState({
     this.selectedEmployeeStatus,
     this.isRegisterButtonEnabled = false,
   });
 
-  LoginInstitutionState copyWith({
+  RegisterState copyWith({
     String? selectedEmployeeStatus,
     bool? isRegisterButtonEnabled,
   }) {
-    return LoginInstitutionState(
+    return RegisterState(
       selectedEmployeeStatus: selectedEmployeeStatus ?? this.selectedEmployeeStatus,
       isRegisterButtonEnabled: isRegisterButtonEnabled ?? this.isRegisterButtonEnabled,
     );
