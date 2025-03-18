@@ -31,6 +31,9 @@ class ColumnCustomerRequest extends StatelessWidget {
           children: [
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                filled: true,
+                
+                //  borderRadius: 20,
                 hintText: 'أدخل اسم العميل ',
                 keyboardType: TextInputType.name,
                 controller: context.read<CustomerRequestCubit>().nameController,

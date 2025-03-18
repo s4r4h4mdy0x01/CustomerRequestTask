@@ -8,7 +8,14 @@ import 'package:customer_request_task/features/auth/ui/screens/register_screen.d
 import 'package:customer_request_task/features/auth/ui/screens/login_screen.dart';
 import 'package:customer_request_task/features/auth/ui/screens/splash_login_or_register.dart';
 import 'package:customer_request_task/features/employee/employee_screen.dart';
+import 'package:customer_request_task/features/employee/leave_request/ui/leave_request_screen.dart';
+import 'package:customer_request_task/features/employee/money_request/logic/money_request_cubit.dart';
+import 'package:customer_request_task/features/employee/money_request/ui/money_request_screen.dart';
+import 'package:customer_request_task/features/leader/dashboard_leader/ui/screens/dashboard_leader_screen.dart';
 import 'package:customer_request_task/features/leader/ui/leader_screen.dart';
+import 'package:customer_request_task/features/leader/view_visit_leader/ui/screens/view_visit_leader_screen.dart';
+import 'package:customer_request_task/features/main_features/create_invoice/logic/create_invoice_cubit.dart';
+import 'package:customer_request_task/features/main_features/create_invoice/ui/create_invoice_sceen.dart';
 import 'package:customer_request_task/features/sales/ui/sales_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,13 +45,46 @@ class AppRouter {
           builder:
               (context) => const SalesScreen(userRole: '', accessToken: ''),
         );
+      case RoutesString.moneyRequestScreen:
+        return MaterialPageRoute(
+          builder:
+              (context) => BlocProvider(
+                create: (context) => MoneyRequestCubit(),
+                child: const MoneyRequestScreen(),
+              ),
+        );
 
+      ///? todo
+      case RoutesString.leaveRequestScreen:
+        return MaterialPageRoute(
+          builder:
+              (context) => BlocProvider(
+                create: (context) => MoneyRequestCubit(),
+                child: const LeaveRequestScreen(),
+              ),
+        );
+      case RoutesString.dashboardLeaderScreen:
+        return MaterialPageRoute(
+          builder: (context) => const DashboardLeaderScreen(),
+        );
+      case RoutesString.viewVisitLeaderScreen:
+        return MaterialPageRoute(
+          builder: (context) => const ViewVisitLeaderScreen(),
+        );
       case RoutesString.registerScreen:
         return MaterialPageRoute(
           builder:
               (context) => BlocProvider(
                 create: (context) => RegisterCubit(),
                 child: const RegisterScreen(),
+              ),
+        );
+      case RoutesString.createInvoiceSceen:
+        return MaterialPageRoute(
+          builder:
+              (context) => BlocProvider(
+                create: (context) => CreateInvoiceCubit(),
+                child: const CreateInvoiceSceen(),
               ),
         );
 

@@ -1,4 +1,6 @@
+import 'package:customer_request_task/core/helper/extensions.dart';
 import 'package:customer_request_task/core/helper/spacing.dart';
+import 'package:customer_request_task/core/router/routes_string.dart';
 import 'package:customer_request_task/core/theme/color_manager.dart';
 import 'package:customer_request_task/core/widgets/custom_elevated_button_app.dart.dart';
 import 'package:flutter/material.dart';
@@ -31,14 +33,16 @@ class EmployeeScreen extends StatelessWidget {
               verticalSpace(20),
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
-                onPressed: () {},
+                onPressed: () { context.pushNamed(RoutesString.leaveRequestScreen);},
                 text: 'طلب إجازة ',
                 size: Size(double.infinity, 50),
               ),
               verticalSpace(20),
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RoutesString.moneyRequestScreen);
+                },
                 text: 'طلب سلفة ',
                 size: Size(double.infinity, 50),
               ),

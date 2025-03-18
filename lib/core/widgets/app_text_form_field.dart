@@ -17,7 +17,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.validator,
-    this.filled,
+    this.filled, this.borderRadius, this.maxLines, this.borderSide,
   });
   final EdgeInsetsGeometry? contentPadding;
   final Color? fillColorBackground;
@@ -32,9 +32,13 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String?)? validator;
   final TextDirection? textDirection;
+  final double? borderRadius;
+  final int? maxLines;
+  final BorderSide? borderSide;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+     maxLines: maxLines??1 ,
       textAlign: TextAlign.right,
       textDirection: textDirection,
       controller: controller,
@@ -45,7 +49,7 @@ class AppTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
       keyboardType: keyboardType ?? TextInputType.none,
       decoration: InputDecoration(
-        //  isDense: true,
+          isDense: true,
         contentPadding:
             contentPadding ??
             EdgeInsets.symmetric(vertical: 18.h, horizontal: 18.w),
@@ -73,8 +77,8 @@ class AppTextFormField extends StatelessWidget {
         //   borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         // ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(borderRadius??30),
+          borderSide: borderSide?? BorderSide.none,
         ),
         hintText: hintText,
         hintStyle: TextStylesManager.font15BlackMedium,
