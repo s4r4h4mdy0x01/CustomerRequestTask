@@ -23,6 +23,23 @@ class LeaderScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
           child: Column(
             children: [
+              CustomElevatedButtonApp(
+                color: ColorManager.primary,
+                onPressed: () {
+                  context.pushNamed(RoutesString.leaveRequestScreen);
+                },
+                text: 'طلب إجازة ',
+                size: Size(double.infinity, 50),
+              ),
+              verticalSpace(20),
+              CustomElevatedButtonApp(
+                color: ColorManager.primary,
+                onPressed: () {
+                  context.pushNamed(RoutesString.moneyRequestScreen);
+                },
+                text: 'طلب سلفة ',
+                size: Size(double.infinity, 50),
+              ),
               verticalSpace(60),
               CustomElevatedButtonApp(
                 color: ColorManager.primary,

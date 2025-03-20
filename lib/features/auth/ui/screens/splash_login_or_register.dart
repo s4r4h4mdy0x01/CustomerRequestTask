@@ -31,8 +31,11 @@ class SplashLoginOrRegister extends StatelessWidget {
             CustomElevatedButtonApp(
               color: ColorManager.teal,
               text: 'تسجيل المؤسسة',
+              // onPressed: () {
+              //   context.pushNamed(RoutesString.registerScreen);
+              // },
               onPressed: () {
-                context.pushNamed(RoutesString.registerScreen);
+                
               },
             ),
           ],
