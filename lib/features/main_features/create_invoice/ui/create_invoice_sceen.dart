@@ -116,6 +116,35 @@ class CreateInvoiceSceen extends StatelessWidget {
                 onChanged: (value) => cubit.updateDiscount(value),
                 borderSide: BorderSide(),
               ),
+              const Text(
+                'نوع الخصم',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: RadioListTile<bool>(
+                      title: const Text("نسبة مئوية"),
+                      value: true,
+                      groupValue: cubit.isPercentage,
+                      onChanged: (value) {
+                        cubit.toggleDiscountType(value!);
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: RadioListTile<bool>(
+                      title: const Text("رقم ثابت"),
+                      value: false,
+                      groupValue: cubit.isPercentage,
+                      onChanged: (value) {
+                        cubit.toggleDiscountType(value!);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            
               verticalSpace(10),
               _buildSummary(cubit),
             ],

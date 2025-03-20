@@ -25,7 +25,7 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
     'فلفل اسود': 150,
     'كمون': 200,
   };
-
+  bool isPercentage = false;
   List<String> filteredProducts = [];
   void filterProducts(String query) {
     filteredProducts =
@@ -163,6 +163,9 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
 
   void updateDiscount(String discount) {
     double parsedDiscount = double.tryParse(discount) ?? 0.0;
+    if (isPercentage) {
+      parsedDiscount = (calculateTotal() * parsedDiscount) / 100;
+    }
 
     if (parsedDiscount != invoiceModel.discount) {
       invoiceModel = InvoiceModel(
@@ -177,5 +180,10 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
 
       emit(CreateInvoiceState.updated(invoiceModel));
     }
+  }
+
+  void toggleDiscountType(bool isPercentage) {
+    this.isPercentage = isPercentage;
+    emit(CreateInvoiceState.updated(invoiceModel));
   }
 }
