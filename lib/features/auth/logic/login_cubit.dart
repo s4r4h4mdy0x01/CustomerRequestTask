@@ -35,10 +35,10 @@ class LoginCubit extends Cubit<LoginState> {
           return;
         }
 
-        final String userRole =
-            (usernameController.text.trim() == "erpadmin") ? "مشرف" : "مندوب";
+        // final String userRole =
+        //     (usernameController.text.trim() == "erpadmin") ? "مشرف" : "مندوب";
 
-        emit(LoginState.success(accessToken: accessToken, userRole: userRole));
+        emit(LoginState.success());
       } else {
         emit(
           LoginState.error(

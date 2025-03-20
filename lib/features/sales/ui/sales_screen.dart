@@ -3,23 +3,11 @@ import 'package:customer_request_task/core/helper/spacing.dart';
 import 'package:customer_request_task/core/router/routes_string.dart';
 import 'package:customer_request_task/core/theme/color_manager.dart';
 import 'package:customer_request_task/core/widgets/custom_elevated_button_app.dart.dart';
-import 'package:customer_request_task/features/employee/leave_request/ui/leave_request_screen.dart';
-import 'package:customer_request_task/features/employee/money_request/ui/money_request_screen.dart';
-import 'package:customer_request_task/features/leader/add_new_customer_request/ui/screen/add_new_customer_request_screen.dart';
-import 'package:customer_request_task/features/leader/dashboard_leader/ui/screens/dashboard_leader_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// استيراد الـ Controller
 
 class SalesScreen extends StatelessWidget {
-  final String userRole;
-  final String accessToken;
-
-  const SalesScreen({
-    super.key,
-    required this.userRole,
-    required this.accessToken,
-  });
+  const SalesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +84,9 @@ class SalesScreen extends StatelessWidget {
               verticalSpace(20),
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RoutesString.purchaseReturnScreen);
+                },
                 text: 'مرتجع شراء',
                 size: Size(double.infinity, 50),
               ),
@@ -123,4 +113,3 @@ class SalesScreen extends StatelessWidget {
     );
   }
 }
-

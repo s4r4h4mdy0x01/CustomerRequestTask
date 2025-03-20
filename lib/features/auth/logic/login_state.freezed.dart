@@ -107,68 +107,33 @@ String toString() {
 
 
 class Success<T> implements LoginState<T> {
-  const Success({required this.accessToken, required this.userRole});
+  const Success();
   
 
- final  String accessToken;
- final  String userRole;
 
-/// Create a copy of LoginState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$SuccessCopyWith<T, Success<T>> get copyWith => _$SuccessCopyWithImpl<T, Success<T>>(this, _$identity);
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success<T>&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.userRole, userRole) || other.userRole == userRole));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success<T>);
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,accessToken,userRole);
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'LoginState<$T>.success(accessToken: $accessToken, userRole: $userRole)';
+  return 'LoginState<$T>.success()';
 }
 
 
 }
 
-/// @nodoc
-abstract mixin class $SuccessCopyWith<T,$Res>  {
-  factory $SuccessCopyWith(Success<T> value, $Res Function(Success<T>) _then) = _$SuccessCopyWithImpl;
-@useResult
-$Res call({
- String accessToken, String userRole
-});
 
 
-
-}
-/// @nodoc
-class _$SuccessCopyWithImpl<T,$Res>
-    implements $SuccessCopyWith<T, $Res> {
-  _$SuccessCopyWithImpl(this._self, this._then);
-
-  final Success<T> _self;
-  final $Res Function(Success<T>) _then;
-
-/// Create a copy of LoginState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? accessToken = null,Object? userRole = null,}) {
-  return _then(Success<T>(
-accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
-as String,userRole: null == userRole ? _self.userRole : userRole // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
 
 /// @nodoc
 

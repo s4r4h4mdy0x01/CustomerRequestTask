@@ -9,6 +9,8 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
   InvoiceModel invoiceModel = InvoiceModel();
   TextEditingController invoiceNumberController = TextEditingController();
   TextEditingController discountController = TextEditingController();
+  final TextEditingController invoiceDateController = TextEditingController();
+  final TextEditingController dueDateController = TextEditingController();
 
   final List<String> customers = [
     'النحلات الثلاثة',
@@ -87,21 +89,6 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
     emit(CreateInvoiceState.updated(invoiceModel));
   }
 
-  void selectInvoiceDate(DateTime? date) {
-    invoiceModel.invoiceDate = date;
-    emit(CreateInvoiceState.updated(invoiceModel));
-  }
-
-  void selectDueDate(DateTime? date) {
-    invoiceModel.dueDate = date;
-    emit(CreateInvoiceState.updated(invoiceModel));
-  }
-
-  // void updateDiscount(double discount) {
-  //   invoiceModel.discount = discount;
-  //   emit(CreateInvoiceState.updated(invoiceModel));
-  // }
-
   double calculateTotal() => invoiceModel.selectedProducts.fold(
     0,
     (total, item) => total + item['price'],
@@ -141,6 +128,36 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
 
         emit(CreateInvoiceState.updated(invoiceModel));
       }
+    }
+  }
+
+  Future<void> selectInvoiceDate(BuildContext context) async {
+    DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (pickedDate != null) {
+      String formattedDate =
+          "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+      invoiceDateController.text = formattedDate;
+      emit(CreateInvoiceState.updated(invoiceModel));
+    }
+  }
+
+  Future<void> selectDueDate(BuildContext context) async {
+    DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (pickedDate != null) {
+      String formattedDate =
+          "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+      dueDateController.text = formattedDate;
+      emit(CreateInvoiceState.updated(invoiceModel));
     }
   }
 

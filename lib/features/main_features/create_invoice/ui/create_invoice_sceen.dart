@@ -1,6 +1,7 @@
 import 'package:customer_request_task/core/helper/spacing.dart';
 import 'package:customer_request_task/core/theme/color_manager.dart';
 import 'package:customer_request_task/core/widgets/app_text_form_field.dart';
+import 'package:customer_request_task/core/widgets/text_field_time.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/ui/widgets/customer_dropdowm.dart';
 import 'package:customer_request_task/features/main_features/create_invoice/data/models/invoice_model.dart';
 import 'package:customer_request_task/features/main_features/create_invoice/logic/create_invoice_cubit.dart';
@@ -85,21 +86,24 @@ class CreateInvoiceSceen extends StatelessWidget {
                 mapToT: (item) => item, // إرجاع العنصر كما هو
               ),
 
-              const SizedBox(height: 8),
+              verticalSpace(10),
 
-              _buildDateField(
-                context,
-                'تاريخ الفاتورة',
-                cubit.invoiceModel.invoiceDate,
-                (date) => cubit.selectInvoiceDate(date),
+              TextfieldTime(
+                hintText: 'YYYY-MM-DD',
+                controller: cubit.invoiceDateController,
+                onTap: () {
+                  cubit.selectInvoiceDate(context);
+                },
               ),
-              _buildDateField(
-                context,
-                'تاريخ الاستحقاق',
-                cubit.invoiceModel.dueDate,
-                (date) => cubit.selectDueDate(date),
+              verticalSpace(10),
+              TextfieldTime(
+                hintText: 'YYYY-MM-DD',
+                controller: cubit.dueDateController,
+                onTap: () {
+                  cubit.selectDueDate(context);
+                },
               ),
-
+              verticalSpace(10),
               _buildProductSelection(context, cubit, cubit.invoiceModel),
 
               _buildProductList(cubit),
@@ -120,46 +124,6 @@ class CreateInvoiceSceen extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildDateField(
-  BuildContext context,
-  String label,
-  DateTime? value,
-  Function(DateTime?) onDateSelected,
-) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        label,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-      ),
-      const SizedBox(height: 8),
-      GestureDetector(
-        onTap: () async {
-          final pickedDate = await showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2000),
-            lastDate: DateTime(2100),
-          );
-          if (pickedDate != null) onDateSelected(pickedDate);
-        },
-        child: AbsorbPointer(
-          child: TextField(
-            decoration: InputDecoration(
-              hintText:
-                  value == null ? 'YYYY-MM-DD' : value.toString().split(' ')[0],
-              border: const OutlineInputBorder(),
-              suffixIcon: const Icon(Icons.calendar_today),
-            ),
-          ),
-        ),
-      ),
-      const SizedBox(height: 20),
-    ],
-  );
 }
 
 Widget _buildSummary(CreateInvoiceCubit cubit) {

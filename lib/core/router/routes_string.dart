@@ -11,4 +11,5 @@ class RoutesString {
   static const String dashboardLeaderScreen = '/dashboardLeaderScreen';
   static const String viewVisitLeaderScreen = '/viewVisitLeaderScreen';
   static const String createInvoiceSceen = '/createInvoiceSceen';
+  static const String purchaseReturnScreen = '/purchaseReturnScreen';
 }

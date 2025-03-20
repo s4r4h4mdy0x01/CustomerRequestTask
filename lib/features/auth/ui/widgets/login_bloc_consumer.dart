@@ -17,19 +17,13 @@ class LoginBlocConsumer extends StatelessWidget {
         if (state is Success) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('تم الدخول بنجاح كـ ${state.userRole}'),
+              content: Text('تم الدخول بنجاح كـ مشرف '),
               backgroundColor: Colors.green,
             ),
           );
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
-              builder:
-                  (context) => SalesScreen(
-                    userRole: state.userRole,
-                    accessToken: state.accessToken,
-                  ),
-            ),
+            MaterialPageRoute(builder: (context) => SalesScreen()),
           );
         } else if (state is Error) {
           ScaffoldMessenger.of(context).showSnackBar(

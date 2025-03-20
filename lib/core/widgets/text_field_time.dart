@@ -18,7 +18,12 @@ class TextfieldTime extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         suffixIcon: Icon(Icons.calendar_today),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(),
+        ),
       ),
+
       readOnly: true,
       onTap: onTap,
     );

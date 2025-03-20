@@ -28,6 +28,8 @@ class LeaveRequestScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+
+        // Here I used the same cubit to request the Money but I will change it this is just to try
         child: BlocBuilder<MoneyRequestCubit, MoneyRequestState>(
           builder: (context, state) {
             final cubit = context.read<MoneyRequestCubit>();

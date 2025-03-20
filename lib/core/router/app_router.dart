@@ -12,6 +12,7 @@ import 'package:customer_request_task/features/employee/leave_request/ui/leave_r
 import 'package:customer_request_task/features/employee/money_request/logic/money_request_cubit.dart';
 import 'package:customer_request_task/features/employee/money_request/ui/money_request_screen.dart';
 import 'package:customer_request_task/features/leader/dashboard_leader/ui/screens/dashboard_leader_screen.dart';
+import 'package:customer_request_task/features/leader/purchase_return/ui/screens/purchase_return_screen.dart';
 import 'package:customer_request_task/features/leader/ui/leader_screen.dart';
 import 'package:customer_request_task/features/leader/view_visit_leader/ui/screens/view_visit_leader_screen.dart';
 import 'package:customer_request_task/features/main_features/create_invoice/logic/create_invoice_cubit.dart';
@@ -39,12 +40,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const LeaderScreen());
       case RoutesString.employee:
         return MaterialPageRoute(builder: (context) => const EmployeeScreen());
-
-      case RoutesString.sales:
+      case RoutesString.purchaseReturnScreen:
         return MaterialPageRoute(
-          builder:
-              (context) => const SalesScreen(userRole: '', accessToken: ''),
+          builder: (context) => const PurchaseReturnScreen(),
         );
+      case RoutesString.sales:
+        return MaterialPageRoute(builder: (context) => const SalesScreen());
       case RoutesString.moneyRequestScreen:
         return MaterialPageRoute(
           builder:
