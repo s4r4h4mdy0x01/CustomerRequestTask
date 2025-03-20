@@ -1,9 +1,9 @@
 import 'package:customer_request_task/core/helper/spacing.dart';
 import 'package:customer_request_task/core/widgets/app_text_form_field.dart';
-import 'package:customer_request_task/features/add_new_customer_request/logic/customer_request_cubit.dart';
-import 'package:customer_request_task/features/add_new_customer_request/ui/widgets/choosing_files.dart';
-import 'package:customer_request_task/features/add_new_customer_request/ui/widgets/customer_dropdowm.dart';
-import 'package:customer_request_task/features/add_new_customer_request/ui/widgets/customer_request_text_form_field_and_text.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_cubit.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/ui/widgets/choosing_files.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/ui/widgets/customer_dropdowm.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/ui/widgets/customer_request_text_form_field_and_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,9 +31,9 @@ class ColumnCustomerRequest extends StatelessWidget {
           children: [
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
-                filled: true,
-                
-                //  borderRadius: 20,
+                //  filled: true,
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل اسم العميل ',
                 keyboardType: TextInputType.name,
                 controller: context.read<CustomerRequestCubit>().nameController,
@@ -44,6 +44,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل رقم الهاتف',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.phone,
@@ -55,6 +57,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل الرقم الضريبى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.number,
@@ -66,6 +70,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل رقم المبنى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.name,
@@ -79,6 +85,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل اسم الشارع',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.name,
@@ -90,6 +98,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل الرقم الفرعى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.number,
@@ -101,6 +111,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             verticalSpace(10),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل العنوان الوطنى ',
                 keyboardType: TextInputType.name,
                 controller:
@@ -111,6 +123,8 @@ class ColumnCustomerRequest extends StatelessWidget {
             ),
             CustomerRequestTextFormFieldAndText(
               appTextFormField: AppTextFormField(
+                borderRadius: 16,
+                borderSide: BorderSide(),
                 hintText: 'أدخل الحد الإتمانى',
                 textDirection: TextDirection.rtl,
                 keyboardType: TextInputType.number,

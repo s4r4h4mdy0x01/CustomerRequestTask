@@ -1,7 +1,7 @@
 import 'package:customer_request_task/core/network/api_service.dart';
 import 'package:customer_request_task/core/network/dio.dart';
-import 'package:customer_request_task/features/add_new_customer_request/data/repo/customer_request_repo.dart';
-import 'package:customer_request_task/features/add_new_customer_request/logic/customer_request_cubit.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/data/repo/customer_request_repo.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_cubit.dart';
 import 'package:customer_request_task/features/auth/data/repo/login_repo.dart';
 import 'package:customer_request_task/features/auth/logic/login_cubit.dart';
 import 'package:dio/dio.dart';

@@ -18,17 +18,19 @@ class ViewVisitLeaderScreen extends StatelessWidget {
         child: Column(
           children: [
             ColumnValuesViewVisit(),
+            verticalSpace(10),
             Row(
-              //
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Icon(Icons.remove_red_eye, color: ColorManager.primary),
                 Text(
-                  'عرض مسار الزيارة :',
+                  'عرض مسار الزيارة ',
                   style: TextStylesManager.font18BlackSemiBold,
                 ),
-                Icon(Icons.remove_red_eye, color: ColorManager.primary),
               ],
             ),
+            verticalSpace(10),
+            const Divider(thickness: 1.5, color: Colors.grey),
           ],
         ),
       ),

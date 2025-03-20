@@ -1,6 +1,6 @@
 import 'package:customer_request_task/core/network/api_service.dart';
-import 'package:customer_request_task/features/add_new_customer_request/data/models/customer_request_request_body.dart';
-import 'package:customer_request_task/features/add_new_customer_request/data/models/customer_request_response_body.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/data/models/customer_request_request_body.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/data/models/customer_request_response_body.dart';
 
 class CustomerRequestRepo {
   final ApiService _apiService;

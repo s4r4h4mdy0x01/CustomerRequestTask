@@ -40,8 +40,8 @@ class RegisterCubit extends Cubit<RegisterState> {
         arguments: {'userRole': '', 'accessToken': ''},
       );
     } else if (state.selectedEmployeeStatus == 'مشرف') {
-      context.pushNamed(RoutesString.leader);
-    } else if (state.selectedEmployeeStatus == 'موظف') {
+      context.pushNamed(RoutesString.leader );
+    } else if (state.selectedEmployeeStatus == 'موظف' ) {
       context.pushNamed(RoutesString.employee);
     }
   }

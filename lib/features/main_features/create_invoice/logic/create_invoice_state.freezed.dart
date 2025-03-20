@@ -103,4 +103,69 @@ String toString() {
 
 
 
+/// @nodoc
+
+
+class Updated implements CreateInvoiceState {
+  const Updated(this.invoiceModel);
+  
+
+ final  InvoiceModel invoiceModel;
+
+/// Create a copy of CreateInvoiceState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UpdatedCopyWith<Updated> get copyWith => _$UpdatedCopyWithImpl<Updated>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Updated&&(identical(other.invoiceModel, invoiceModel) || other.invoiceModel == invoiceModel));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,invoiceModel);
+
+@override
+String toString() {
+  return 'CreateInvoiceState.updated(invoiceModel: $invoiceModel)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UpdatedCopyWith<$Res>  {
+  factory $UpdatedCopyWith(Updated value, $Res Function(Updated) _then) = _$UpdatedCopyWithImpl;
+@useResult
+$Res call({
+ InvoiceModel invoiceModel
+});
+
+
+
+}
+/// @nodoc
+class _$UpdatedCopyWithImpl<$Res>
+    implements $UpdatedCopyWith<$Res> {
+  _$UpdatedCopyWithImpl(this._self, this._then);
+
+  final Updated _self;
+  final $Res Function(Updated) _then;
+
+/// Create a copy of CreateInvoiceState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? invoiceModel = null,}) {
+  return _then(Updated(
+null == invoiceModel ? _self.invoiceModel : invoiceModel // ignore: cast_nullable_to_non_nullable
+as InvoiceModel,
+  ));
+}
+
+
+}
+
 // dart format on

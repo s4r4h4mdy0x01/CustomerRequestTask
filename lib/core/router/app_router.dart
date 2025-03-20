@@ -1,7 +1,7 @@
 import 'package:customer_request_task/core/di/dependency_injection.dart';
 import 'package:customer_request_task/core/router/routes_string.dart';
-import 'package:customer_request_task/features/add_new_customer_request/logic/customer_request_cubit.dart';
-import 'package:customer_request_task/features/add_new_customer_request/ui/screen/add_new_customer_request_screen.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_cubit.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/ui/screen/add_new_customer_request_screen.dart';
 import 'package:customer_request_task/features/auth/logic/login_cubit.dart';
 import 'package:customer_request_task/features/auth/logic/register_cubit.dart';
 import 'package:customer_request_task/features/auth/ui/screens/register_screen.dart';

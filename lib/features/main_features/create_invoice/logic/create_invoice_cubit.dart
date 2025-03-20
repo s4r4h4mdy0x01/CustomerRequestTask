@@ -1,14 +1,14 @@
-import 'package:customer_request_task/features/main_features/create_invoice/data/models/invoice_model.dart';
-import 'package:customer_request_task/features/main_features/create_invoice/logic/create_invoice_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:customer_request_task/features/main_features/create_invoice/data/models/invoice_model.dart';
+import 'package:customer_request_task/features/main_features/create_invoice/logic/create_invoice_state.dart';
 
 class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
+  CreateInvoiceCubit() : super(const CreateInvoiceState.initial());
+
   InvoiceModel invoiceModel = InvoiceModel();
   TextEditingController invoiceNumberController = TextEditingController();
   TextEditingController discountController = TextEditingController();
-
-  CreateInvoiceCubit() : super(const CreateInvoiceState.initial());
 
   final List<String> customers = [
     'النحلات الثلاثة',
@@ -23,76 +23,142 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
     'فلفل اسود': 150,
     'كمون': 200,
   };
-  void selectCustomer(String? customer) {
-    invoiceModel.customer = customer;
+
+  List<String> filteredProducts = [];
+  void filterProducts(String query) {
+    filteredProducts =
+        products.where((product) => product.contains(query)).toList();
+    emit(CreateInvoiceState.updated(invoiceModel));
   }
 
-  // اختيار المندوب
-  void selectRepresentative(String? representative) {
-    invoiceModel.representative = representative;
-  }
-
-  // اختيار تاريخ الفاتورة
-  void selectInvoiceDate(DateTime? date) {
-    invoiceModel.invoiceDate = date;
-  }
-
-  // اختيار تاريخ الاستحقاق
-  void selectDueDate(DateTime? date) {
-    invoiceModel.dueDate = date;
-  }
-
-  // إضافة منتج
   void addProduct(String product) {
-    if (invoiceModel.selectedProducts.any((item) => item['name'] == product)) {
-      invoiceModel.selectedProducts.add({
+    if (!invoiceModel.selectedProducts.any((item) => item['name'] == product)) {
+      final updatedProducts = List<Map<String, dynamic>>.from(
+        invoiceModel.selectedProducts,
+      )..add({
         'name': product,
-        'price': productPrices[product]! * 1, // السعر يبدأ من 1 وحدة
+        'price': productPrices[product]! * 1,
         'quantity': 1,
       });
+
+      invoiceModel = InvoiceModel(
+        invoiceNumber: invoiceModel.invoiceNumber,
+        customer: invoiceModel.customer,
+        representative: invoiceModel.representative,
+        invoiceDate: invoiceModel.invoiceDate,
+        dueDate: invoiceModel.dueDate,
+        selectedProducts: updatedProducts,
+        discount: invoiceModel.discount,
+      );
+
+      emit(CreateInvoiceState.updated(invoiceModel));
     }
   }
 
-  void updateQuantity(int index, int change) {
-    if (invoiceModel.selectedProducts[index]['quantity'] + change >= 1) {
-      invoiceModel.selectedProducts[index]['quantity'] += change;
-      invoiceModel.selectedProducts[index]['price'] =
-          productPrices[invoiceModel.selectedProducts[index]['name']]! *
-          invoiceModel.selectedProducts[index]['quantity'];
-    }
-  }
-
-  // حذف منتج
   void removeProduct(int index) {
-    invoiceModel.selectedProducts.removeAt(index);
-  }
+    final updatedProducts = List<Map<String, dynamic>>.from(
+      invoiceModel.selectedProducts,
+    );
 
-  // تحديث الخصم
-  void updateDiscount(double discount) {
-    invoiceModel.discount = discount;
-  }
+    if (index >= 0 && index < updatedProducts.length) {
+      updatedProducts.removeAt(index);
 
-  // حساب الإجمالي
-  double calculateTotal() {
-    double total = 0;
-    for (var product in invoiceModel.selectedProducts) {
-      total += product['price'];
+      invoiceModel = InvoiceModel(
+        invoiceNumber: invoiceModel.invoiceNumber,
+        customer: invoiceModel.customer,
+        representative: invoiceModel.representative,
+        invoiceDate: invoiceModel.invoiceDate,
+        dueDate: invoiceModel.dueDate,
+        selectedProducts: updatedProducts,
+        discount: invoiceModel.discount,
+      );
+
+      emit(CreateInvoiceState.updated(invoiceModel));
     }
-    return total;
   }
 
-  // حساب الإجمالي بعد الخصم
-  double calculateTotalAfterDiscount() {
-    return calculateTotal() - invoiceModel.discount;
+  void selectCustomer(String? customer) {
+    invoiceModel.customer = customer;
+    emit(CreateInvoiceState.updated(invoiceModel));
   }
 
-  // حساب الإجمالي الكلي (بعد الخصم + الضريبة)
-  double calculateGrandTotal() {
-    return calculateTotalAfterDiscount() + invoiceModel.vat;
+  void selectRepresentative(String? representative) {
+    invoiceModel.representative = representative;
+    emit(CreateInvoiceState.updated(invoiceModel));
   }
 
-  // الحصول على بيانات الفاتورة
-  InvoiceModel getInvoiceDetails() {
-    return invoiceModel;
+  void selectInvoiceDate(DateTime? date) {
+    invoiceModel.invoiceDate = date;
+    emit(CreateInvoiceState.updated(invoiceModel));
+  }
+
+  void selectDueDate(DateTime? date) {
+    invoiceModel.dueDate = date;
+    emit(CreateInvoiceState.updated(invoiceModel));
+  }
+
+  // void updateDiscount(double discount) {
+  //   invoiceModel.discount = discount;
+  //   emit(CreateInvoiceState.updated(invoiceModel));
+  // }
+
+  double calculateTotal() => invoiceModel.selectedProducts.fold(
+    0,
+    (total, item) => total + item['price'],
+  );
+
+  double calculateTotalAfterDiscount() =>
+      calculateTotal() - invoiceModel.discount;
+
+  double calculateGrandTotal() => calculateTotalAfterDiscount() + vatTotal();
+
+  double vatTotal() => calculateTotalAfterDiscount() * 0.15;
+  void updateQuantity(int index, int change) {
+    final updatedProducts = List<Map<String, dynamic>>.from(
+      invoiceModel.selectedProducts,
+    );
+
+    if (index >= 0 && index < updatedProducts.length) {
+      final product = updatedProducts[index];
+
+      final newQuantity = product['quantity'] + change;
+      if (newQuantity >= 1) {
+        updatedProducts[index] = {
+          ...product,
+          'quantity': newQuantity,
+          'price': productPrices[product['name']]! * newQuantity,
+        };
+
+        invoiceModel = InvoiceModel(
+          invoiceNumber: invoiceModel.invoiceNumber,
+          customer: invoiceModel.customer,
+          representative: invoiceModel.representative,
+          invoiceDate: invoiceModel.invoiceDate,
+          dueDate: invoiceModel.dueDate,
+          selectedProducts: updatedProducts, // تحديث القائمة بالكامل
+          discount: invoiceModel.discount,
+        );
+
+        emit(CreateInvoiceState.updated(invoiceModel));
+      }
+    }
+  }
+
+  void updateDiscount(String discount) {
+    double parsedDiscount = double.tryParse(discount) ?? 0.0;
+
+    if (parsedDiscount != invoiceModel.discount) {
+      invoiceModel = InvoiceModel(
+        invoiceNumber: invoiceModel.invoiceNumber,
+        customer: invoiceModel.customer,
+        representative: invoiceModel.representative,
+        invoiceDate: invoiceModel.invoiceDate,
+        dueDate: invoiceModel.dueDate,
+        selectedProducts: invoiceModel.selectedProducts,
+        discount: parsedDiscount, // تحديث قيمة الخصم
+      );
+
+      emit(CreateInvoiceState.updated(invoiceModel));
+    }
   }
 }

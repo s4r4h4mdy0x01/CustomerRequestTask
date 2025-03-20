@@ -17,7 +17,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.validator,
-    this.filled, this.borderRadius, this.maxLines, this.borderSide,
+    this.filled, this.borderRadius, this.maxLines, this.borderSide, this.onTap, this.readOnly, this.onChanged,
   });
   final EdgeInsetsGeometry? contentPadding;
   final Color? fillColorBackground;
@@ -35,9 +35,15 @@ class AppTextFormField extends StatelessWidget {
   final double? borderRadius;
   final int? maxLines;
   final BorderSide? borderSide;
+  final void Function()? onTap;
+  final bool? readOnly;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
+      readOnly:readOnly??false ,
+      onTap: onTap,
      maxLines: maxLines??1 ,
       textAlign: TextAlign.right,
       textDirection: textDirection,

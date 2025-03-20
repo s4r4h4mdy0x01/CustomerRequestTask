@@ -1,7 +1,7 @@
 import 'package:customer_request_task/core/theme/color_manager.dart';
-import 'package:customer_request_task/features/add_new_customer_request/logic/customer_request_cubit.dart';
-import 'package:customer_request_task/features/add_new_customer_request/logic/customer_request_state.dart';
-import 'package:customer_request_task/features/add_new_customer_request/ui/screen/view_details_customer_request.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_cubit.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_state.dart';
+import 'package:customer_request_task/features/leader/add_new_customer_request/ui/screen/view_details_customer_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

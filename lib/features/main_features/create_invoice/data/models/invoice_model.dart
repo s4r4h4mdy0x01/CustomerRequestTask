@@ -4,9 +4,9 @@ class InvoiceModel {
   String? representative;
   DateTime? invoiceDate;
   DateTime? dueDate;
-  List<Map<String, dynamic>> selectedProducts = [];
-  double discount = 0;
-  double vat = 45.0; // ضريبة القيمة المضافة
+  List<Map<String, dynamic>> selectedProducts;
+  double discount;
+  double vat;
 
   InvoiceModel({
     this.invoiceNumber,
@@ -14,5 +14,8 @@ class InvoiceModel {
     this.representative,
     this.invoiceDate,
     this.dueDate,
+    this.selectedProducts = const [],
+    this.discount = 0.0,
+    this.vat = 1.0, // ضريبة القيمة المضافة
   });
 }
