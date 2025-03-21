@@ -1,4 +1,5 @@
 import 'package:customer_request_task/core/helper/spacing.dart';
+import 'package:customer_request_task/core/theme/color_manager.dart';
 import 'package:customer_request_task/core/theme/styles_manager.dart';
 import 'package:customer_request_task/core/widgets/app_text_button.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_cubit.dart';
@@ -14,7 +15,7 @@ class AddNewCustomerRequestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: ColorManager.primary,
 
         title: Text(
           'فتح حساب جديد',

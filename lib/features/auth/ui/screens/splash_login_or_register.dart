@@ -20,7 +20,7 @@ class SplashLoginOrRegister extends StatelessWidget {
             const AuthLogo(), verticalSpace(20), const AuthTitle(),
             verticalSpace(40),
             CustomElevatedButtonApp(
-              color: ColorManager.teal,
+              color: ColorManager.primary,
               text: 'تسجيل الدخول',
               onPressed: () {
                 context.pushNamed(RoutesString.login);
@@ -29,14 +29,12 @@ class SplashLoginOrRegister extends StatelessWidget {
             const SizedBox(height: 20),
             // زر تسجيل المؤسسة
             CustomElevatedButtonApp(
-              color: ColorManager.teal,
+              color: ColorManager.primary,
               text: 'تسجيل المؤسسة',
               // onPressed: () {
               //   context.pushNamed(RoutesString.registerScreen);
               // },
-              onPressed: () {
-                
-              },
+              onPressed: () {},
             ),
           ],
         ),

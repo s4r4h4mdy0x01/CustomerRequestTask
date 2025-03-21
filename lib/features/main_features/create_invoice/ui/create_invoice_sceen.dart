@@ -144,7 +144,7 @@ class CreateInvoiceSceen extends StatelessWidget {
                   ),
                 ],
               ),
-            
+
               verticalSpace(10),
               _buildSummary(cubit),
             ],

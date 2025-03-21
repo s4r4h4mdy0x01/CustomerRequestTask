@@ -161,8 +161,29 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
     }
   }
 
+  // void updateDiscount(String discount) {
+  //   double parsedDiscount = double.tryParse(discount) ?? 0.0;
+  //   if (isPercentage) {
+  //     parsedDiscount = (calculateTotal() * parsedDiscount) / 100;
+  //   }
+
+  //   if (parsedDiscount != invoiceModel.discount) {
+  //     invoiceModel = InvoiceModel(
+  //       invoiceNumber: invoiceModel.invoiceNumber,
+  //       customer: invoiceModel.customer,
+  //       representative: invoiceModel.representative,
+  //       invoiceDate: invoiceModel.invoiceDate,
+  //       dueDate: invoiceModel.dueDate,
+  //       selectedProducts: invoiceModel.selectedProducts,
+  //       discount: parsedDiscount, // تحديث قيمة الخصم
+  //     );
+
+  //     emit(CreateInvoiceState.updated(invoiceModel));
+  //   }
+  // }
   void updateDiscount(String discount) {
     double parsedDiscount = double.tryParse(discount) ?? 0.0;
+
     if (isPercentage) {
       parsedDiscount = (calculateTotal() * parsedDiscount) / 100;
     }
@@ -184,6 +205,6 @@ class CreateInvoiceCubit extends Cubit<CreateInvoiceState> {
 
   void toggleDiscountType(bool isPercentage) {
     this.isPercentage = isPercentage;
-    emit(CreateInvoiceState.updated(invoiceModel));
+    updateDiscount(discountController.text); // إعادة حساب الخصم عند تغيير نوعه
   }
 }

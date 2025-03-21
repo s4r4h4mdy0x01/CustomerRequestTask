@@ -22,7 +22,7 @@ class TextStylesManager {
   static TextStyle font25TealRegular = TextStyle(
     fontSize: 25.sp,
     fontWeight: FontWeightManager.regular,
-    color: ColorManager.teal,
+    color: ColorManager.primary,
   );
 
   static TextStyle font16PrimarySemiBold = TextStyle(
