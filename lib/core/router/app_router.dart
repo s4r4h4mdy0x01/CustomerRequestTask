@@ -9,7 +9,7 @@ import 'package:customer_request_task/features/auth/ui/screens/login_screen.dart
 import 'package:customer_request_task/features/auth/ui/screens/splash_login_or_register.dart';
 import 'package:customer_request_task/features/employee/employee_screen.dart';
 import 'package:customer_request_task/features/employee/leave_request/ui/leave_request_screen.dart';
-import 'package:customer_request_task/features/employee/money_request/logic/money_request_cubit.dart';
+import 'package:customer_request_task/features/employee/money_request/logic/borrow_requests_cubit.dart';
 import 'package:customer_request_task/features/employee/money_request/ui/money_request_screen.dart';
 import 'package:customer_request_task/features/leader/dashboard_leader/ui/screens/dashboard_leader_screen.dart';
 import 'package:customer_request_task/features/leader/purchase_return/ui/screens/purchase_return_screen.dart';
@@ -50,7 +50,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (context) => BlocProvider(
-                create: (context) => MoneyRequestCubit(),
+                create: (context) => getIt<BorrowRequestsCubit>(),
                 child: const MoneyRequestScreen(),
               ),
         );
@@ -58,11 +58,7 @@ class AppRouter {
       ///? todo
       case RoutesString.leaveRequestScreen:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
-                create: (context) => MoneyRequestCubit(),
-                child: const LeaveRequestScreen(),
-              ),
+          builder: (context) => const LeaveRequestScreen(),
         );
       case RoutesString.dashboardLeaderScreen:
         return MaterialPageRoute(

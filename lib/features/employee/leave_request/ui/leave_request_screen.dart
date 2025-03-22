@@ -5,8 +5,8 @@ import 'package:customer_request_task/core/widgets/app_text_button.dart';
 import 'package:customer_request_task/core/widgets/app_text_form_field.dart';
 import 'package:customer_request_task/core/widgets/text_field_time.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/ui/widgets/customer_dropdowm.dart';
-import 'package:customer_request_task/features/employee/money_request/logic/money_request_cubit.dart';
-import 'package:customer_request_task/features/employee/money_request/logic/money_request_state.dart';
+import 'package:customer_request_task/features/employee/money_request/logic/borrow_requests_cubit.dart';
+import 'package:customer_request_task/features/employee/money_request/logic/borrow_requests_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,23 +30,20 @@ class LeaveRequestScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
 
         // Here I used the same cubit to request the Money but I will change it this is just to try
-        child: BlocBuilder<MoneyRequestCubit, MoneyRequestState>(
-          builder: (context, state) {
-            final cubit = context.read<MoneyRequestCubit>();
-            return Directionality(
+        child:Directionality(
               textDirection: TextDirection.rtl,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
 
                 children: [
-                  const Text('تاريخ الطلب:', style: TextStyle(fontSize: 18)),
-                  TextfieldTime(
-                    hintText: 'اختر التاريخ',
-                    controller: cubit.requestDateController,
-                    onTap: () {
-                      cubit.selectRequestDate(context);
-                    },
-                  ),
+                  // const Text('تاريخ الطلب:', style: TextStyle(fontSize: 18)),
+                  // TextfieldTime(
+                  //   hintText: 'اختر التاريخ',
+                  //   controller: cubit.requestDateController,
+                  //   onTap: () {
+                  //     cubit.selectRequestDate(context);
+                  //   },
+                  // ),
                   verticalSpace(20),
                   const Text('المدير المباشر', style: TextStyle(fontSize: 18)),
                   verticalSpace(10),
@@ -80,9 +77,7 @@ class LeaveRequestScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            );
-          },
-        ),
+        )
       ),
     );
   }

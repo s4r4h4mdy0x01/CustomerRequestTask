@@ -1,4 +1,5 @@
 import 'package:customer_request_task/core/network/api_constants.dart';
+import 'package:customer_request_task/features/employee/money_request/data/models/borrow_requests_response_model.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/data/models/customer_request_response_body.dart';
 import 'package:customer_request_task/features/auth/data/authintication/auth_model.dart';
 import 'package:customer_request_task/features/auth/data/authintication/success_model.dart';
@@ -25,6 +26,15 @@ abstract class ApiService {
     @Part(name: 'cityId') int cityId,
     @Part(name: 'files') List<MultipartFile> files,
   );
+  // login
   @POST(ApiConstants.login)
   Future<SuccessModel> login(@Body() AuthModel authModel);
+  // Borrow Requests
+  @POST(ApiConstants.borrowRequests)
+  @MultiPart()
+  Future<BorrowRequestsResponseBody> borrowRequests(
+    @Part(name: 'borrowRequestDate') String borrowRequestDate,
+    @Part(name: 'borrowValue') double borrowValue,
+    @Part(name: 'reason') String reason,
+  );
 }

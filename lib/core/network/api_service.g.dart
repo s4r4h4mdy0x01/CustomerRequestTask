@@ -102,6 +102,45 @@ class _ApiService implements ApiService {
     return _value;
   }
 
+  @override
+  Future<BorrowRequestsResponseBody> borrowRequests(
+    String borrowRequestDate,
+    double borrowValue,
+    String reason,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('borrowRequestDate', borrowRequestDate));
+    _data.fields.add(MapEntry('borrowValue', borrowValue.toString()));
+    _data.fields.add(MapEntry('reason', reason));
+    final _options = _setStreamType<BorrowRequestsResponseBody>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
+          .compose(
+            _dio.options,
+            'api/v1/borrow-requests',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BorrowRequestsResponseBody _value;
+    try {
+      _value = BorrowRequestsResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
