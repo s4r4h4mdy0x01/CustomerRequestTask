@@ -1,5 +1,6 @@
 import 'package:customer_request_task/core/di/dependency_injection.dart';
 import 'package:customer_request_task/core/router/routes_string.dart';
+import 'package:customer_request_task/features/employee/leave_request/logic/vacation_requests_cubit.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/logic/customer_request_cubit.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/ui/screen/add_new_customer_request_screen.dart';
 import 'package:customer_request_task/features/auth/logic/login_cubit.dart';
@@ -8,7 +9,7 @@ import 'package:customer_request_task/features/auth/ui/screens/register_screen.d
 import 'package:customer_request_task/features/auth/ui/screens/login_screen.dart';
 import 'package:customer_request_task/features/auth/ui/screens/splash_login_or_register.dart';
 import 'package:customer_request_task/features/employee/employee_screen.dart';
-import 'package:customer_request_task/features/employee/leave_request/ui/leave_request_screen.dart';
+import 'package:customer_request_task/features/employee/leave_request/ui/vacation_request_screen.dart';
 import 'package:customer_request_task/features/employee/money_request/logic/borrow_requests_cubit.dart';
 import 'package:customer_request_task/features/employee/money_request/ui/money_request_screen.dart';
 import 'package:customer_request_task/features/leader/dashboard_leader/ui/screens/dashboard_leader_screen.dart';
@@ -46,7 +47,7 @@ class AppRouter {
         );
       case RoutesString.sales:
         return MaterialPageRoute(builder: (context) => const SalesScreen());
-      case RoutesString.moneyRequestScreen:
+      case RoutesString.borrowRequestScreen:
         return MaterialPageRoute(
           builder:
               (context) => BlocProvider(
@@ -55,10 +56,13 @@ class AppRouter {
               ),
         );
 
-      ///? todo
-      case RoutesString.leaveRequestScreen:
+      case RoutesString.vacationRequestScreen:
         return MaterialPageRoute(
-          builder: (context) => const LeaveRequestScreen(),
+          builder:
+              (context) => BlocProvider(
+                create: (context) => getIt<VacationRequestsCubit>(),
+                child: const VacationRequestScreen(),
+              ),
         );
       case RoutesString.dashboardLeaderScreen:
         return MaterialPageRoute(

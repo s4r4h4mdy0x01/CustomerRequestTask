@@ -33,7 +33,7 @@ class EmployeeScreen extends StatelessWidget {
               verticalSpace(20),
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
-                onPressed: () { context.pushNamed(RoutesString.leaveRequestScreen);},
+                onPressed: () { context.pushNamed(RoutesString.vacationRequestScreen);},
                 text: 'طلب إجازة ',
                 size: Size(double.infinity, 50),
               ),
@@ -41,7 +41,7 @@ class EmployeeScreen extends StatelessWidget {
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
                 onPressed: () {
-                  context.pushNamed(RoutesString.moneyRequestScreen);
+                  context.pushNamed(RoutesString.borrowRequestScreen);
                 },
                 text: 'طلب سلفة ',
                 size: Size(double.infinity, 50),

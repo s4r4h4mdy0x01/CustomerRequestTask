@@ -1,4 +1,5 @@
 import 'package:customer_request_task/core/network/api_constants.dart';
+import 'package:customer_request_task/features/employee/leave_request/data/models/vacation_requests_response_body.dart';
 import 'package:customer_request_task/features/employee/money_request/data/models/borrow_requests_response_model.dart';
 import 'package:customer_request_task/features/leader/add_new_customer_request/data/models/customer_request_response_body.dart';
 import 'package:customer_request_task/features/auth/data/authintication/auth_model.dart';
@@ -35,6 +36,14 @@ abstract class ApiService {
   Future<BorrowRequestsResponseBody> borrowRequests(
     @Part(name: 'borrowRequestDate') String borrowRequestDate,
     @Part(name: 'borrowValue') double borrowValue,
+    @Part(name: 'reason') String reason,
+  );
+  // Vacation Requests
+  @POST(ApiConstants.vacationRequests)
+  @MultiPart()
+  Future<VacationRequestsResponseBody> vacationRequests(
+    @Part(name: 'dateFrom') String dateFrom,
+    @Part(name: 'dateTo') String dateTo,
     @Part(name: 'reason') String reason,
   );
 }

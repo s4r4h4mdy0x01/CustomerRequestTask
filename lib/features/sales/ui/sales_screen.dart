@@ -26,7 +26,7 @@ class SalesScreen extends StatelessWidget {
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
                 onPressed: () {
-                  context.pushNamed(RoutesString.leaveRequestScreen);
+                  context.pushNamed(RoutesString.vacationRequestScreen);
                 },
                 text: 'طلب إجازة ',
                 size: Size(double.infinity, 50),
@@ -35,7 +35,7 @@ class SalesScreen extends StatelessWidget {
               CustomElevatedButtonApp(
                 color: ColorManager.primary,
                 onPressed: () {
-                  context.pushNamed(RoutesString.moneyRequestScreen);
+                  context.pushNamed(RoutesString.borrowRequestScreen);
                 },
                 text: 'طلب سلفة ',
                 size: Size(double.infinity, 50),
