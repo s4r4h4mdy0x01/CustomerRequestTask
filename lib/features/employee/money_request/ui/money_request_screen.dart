@@ -22,25 +22,27 @@ class MoneyRequestScreen extends StatelessWidget {
         title: const Text('طلب سلفة'),
         backgroundColor: ColorManager.primary,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Column(
-            children: [
-              ColumnBorrowRequest(),
-              Center(
-                child: AppTextButton(
-                  buttonText: 'إرسال الطلب',
-                  textStyle: TextStylesManager.font16WhiteRegular,
-                  isLoading: false,
-                  onPressed: () {
-                    context.read<BorrowRequestsCubit>().emitborrowRequest();
-                  },
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Column(
+              children: [
+                ColumnBorrowRequest(),
+                Center(
+                  child: AppTextButton(
+                    buttonText: 'إرسال الطلب',
+                    textStyle: TextStylesManager.font16WhiteRegular,
+                    isLoading: false,
+                    onPressed: () {
+                      context.read<BorrowRequestsCubit>().emitborrowRequest();
+                    },
+                  ),
                 ),
-              ),
-              BorrowRequestBlocListener(),
-            ],
+                BorrowRequestBlocListener(),
+              ],
+            ),
           ),
         ),
       ),

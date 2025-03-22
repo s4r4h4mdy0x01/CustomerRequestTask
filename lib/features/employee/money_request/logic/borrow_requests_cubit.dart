@@ -2,13 +2,13 @@ import 'package:customer_request_task/features/employee/money_request/data/model
 import 'package:customer_request_task/features/employee/money_request/data/repo/borrow_requests_repo.dart';
 import 'package:customer_request_task/features/employee/money_request/logic/borrow_requests_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 class BorrowRequestsCubit extends Cubit<BorrowRequestsState> {
   final BorrowRequestsRepo _borrowRequestsRepo;
   final TextEditingController borrowRequestDateController =
       TextEditingController();
-  // final TextEditingController borrowValueController = TextEditingController();
   final TextEditingController reasonController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   double borrowValue = 1.0;
@@ -44,8 +44,8 @@ class BorrowRequestsCubit extends Cubit<BorrowRequestsState> {
       lastDate: DateTime(2101),
     );
     if (pickedDate != null) {
-      String formattedDate =
-          "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+      String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+
       borrowRequestDateController.text = formattedDate;
     }
   }

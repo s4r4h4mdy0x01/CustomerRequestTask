@@ -14,13 +14,7 @@ class ColumnBorrowRequest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> values = [
-      {'name': '100', 'id': 1},
-      {'name': '200', 'id': 2},
-      {'name': '300', 'id': 3},
-      {'name': '400', 'id': 4},
-      {'name': '500', 'id': 5},
-    ];
+    final List<double> value = [100.0, 200.0, 300.0, 400.0, 500.0];
     return Form(
       key: context.read<BorrowRequestsCubit>().formKey,
       child: Column(
@@ -39,16 +33,19 @@ class ColumnBorrowRequest extends StatelessWidget {
           verticalSpace(20),
           const Text('قيمة السلفة:', style: TextStyle(fontSize: 18)),
           verticalSpace(10),
-          CustomDropdownField(
-            label: 'اختار قيمة السلفة',
-            items: values,
+
+          CustomDropdownField2(
             value: context.read<BorrowRequestsCubit>().borrowValue,
+            label: 'اختار قيمة السلفة',
+            items: value,
             onChanged: (value) {
               if (value != null) {
                 context.read<BorrowRequestsCubit>().setBorrowValue(value);
               }
             },
+            mapToT: (item) => item,
           ),
+
           verticalSpace(20),
           const Text('السبب:', style: TextStyle(fontSize: 18)),
           verticalSpace(10),
@@ -62,7 +59,6 @@ class ColumnBorrowRequest extends StatelessWidget {
             borderSide: BorderSide(color: ColorManager.black, width: 1.3),
           ),
           verticalSpace(20),
-         
         ],
       ),
     );
